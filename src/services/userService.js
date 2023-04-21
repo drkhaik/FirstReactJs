@@ -1,8 +1,8 @@
-import axios from "axios";
+import axios from "../axios";
 
-const handleLogin = (email, password) => {
-    return axios.post('/api/login');
+const handleLoginAPI = (userEmail, userPassword) => {
+    return axios.post('/api/login', { email: userEmail, password: userPassword });
 }
 
 // export khac nodejs
-export { handleLogin }
+export { handleLoginAPI }
