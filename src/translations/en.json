@@ -1,4 +1,28 @@
 {
+    "home-header": {
+        "speacialty": "Medical speacialty",
+        "search-doctor": "Find a doctor by specialty",
+        "heath-facility": "Health facilities",
+        "select-clinic": "Choose hospital clinic",
+        "doctor": "Doctor",
+        "select-doctor": "Choose a good doctor",
+        "combo": "Checkup package",
+        "check-health": "General health check",
+        "support": "Support"
+    },
+    "banner": {
+        "title1": "MEDICAL FOUNDATION",
+        "title2": "COMPREHENSIVE HEALTH CARE",
+        "speacialty": "Specialist examination",
+        "remote": "Remote examination",
+        "general": "General examination",
+        "medical-test": "Medical test",
+        "mental": "Mental health",
+        "dental": "Dental examination",
+        "surgery": "Surgery pack",
+        "medical-product": "Medical products",
+        "heath-test": "Health Test"
+    },
     "common": {
         "add": "Add",
         "edit": "Edit",
