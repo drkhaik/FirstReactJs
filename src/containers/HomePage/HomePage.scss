@@ -1,0 +1,226 @@
+// ======== REACT Slick ============
+
+.slick-prev,
+.slick-next {
+    width: 48px !important;
+    height: 44px !important;
+    background: #fff !important;
+    border: 2px solid #d7d7d7 !important;
+
+    &:hover {
+        background: #ececec !important;
+    }
+}
+
+.slick-prev {
+    left: -10px !important;
+    z-index: 1000 !important;
+
+}
+
+.slick-next {
+    right: -10px !important;
+}
+
+.slick-prev:before,
+.slick-next:before {
+    font-family: FontAwesome !important;
+    color: red !important;
+}
+
+
+// ========== ADDITIONAL Section =============
+
+.main-section {
+
+    &.section-specialty,
+    &.section-outstanding-doctor {
+        background: #f5f5f5;
+        height: 400px;
+
+    }
+
+    &.section-about {
+        border-top: 1px solid #ccc3c3;
+        border-bottom: 1px solid #ccc3c3;
+        height: 500px;
+        padding: 0 100px;
+
+        .section-about-header {
+            padding: 20px 10px;
+
+            .title-section {
+                font-size: 22px;
+                font-weight: 600;
+            }
+        }
+
+        .section-about-content {
+            display: flex;
+            gap: 15px;
+            width: 100%;
+
+            .content-left {
+                width: 60%;
+            }
+
+            .content-right {
+                width: 40%;
+
+                p {
+                    padding: 15px;
+                    text-align: justify;
+                    font-style: italic;
+                    font-size: 17px;
+                }
+            }
+        }
+    }
+
+    &.section-handbook .section-container {
+        margin: 0 80px;
+    }
+
+
+    .section-body {
+
+        .section-customize {
+            &.circle-customize {
+                width: 273px !important;
+                height: 245px;
+                background-color: #fff;
+                padding: 10px 5px;
+
+                .outer-img {
+                    width: 120px;
+                    height: 120px;
+                    margin: 0 auto;
+                }
+            }
+
+            &.handbook-customize {
+                display: flex !important;
+                color: #333;
+                text-decoration: none;
+
+                .outer-img {
+                    width: 50%;
+                }
+
+                .handbook-title {
+                    width: 45%;
+                    // color: #333;
+                    font-weight: bold;
+                    font-size: 16px;
+                    margin-bottom: 15px;
+                    padding-left: 5px;
+                }
+
+                &:hover {
+                    color: #49bce2;
+                    cursor: pointer;
+                }
+            }
+
+            .img {
+                width: 278px;
+                height: 150px;
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-color: #eee;
+
+                &.section-specialty {
+                    background-image: url('../../assets/specialty/tao-hinh-ham-mat.jpg');
+                }
+
+                &.section-health-facility {
+                    background-image: url('../../assets/health-facility/083122lo-go-viet-duc.jpeg');
+                    border: 1px solid red;
+                }
+
+                &.section-outstanding-doctor {
+                    background-image: url('../../assets/outstanding-doctor/doctor.png');
+                    width: auto;
+                    height: 100%;
+                    border-radius: 50%;
+                }
+
+                &.section-handbook {
+                    background-image: url('../../assets/handbook/175856-phuong-phap-nang-co-mat.png');
+                }
+            }
+
+            .text {
+                margin-top: 10px;
+
+                h3 {
+                    font-size: 13px;
+                }
+
+                h4 {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
+
+
+// ========== MAIN Section  =============
+
+
+.main-section {
+    height: 330px;
+
+    .section-container {
+
+        margin: 0 50px; // responsive
+        display: flex;
+        flex-direction: column;
+
+        .section-header {
+
+            height: 60px;
+            margin-bottom: 30px;
+            padding-top: 30px;
+
+            .title-section {
+                font-size: 22px;
+                font-weight: 600;
+            }
+
+            .btn-section {
+                float: right;
+                padding: 10px 15px;
+                border: none;
+                outline: none;
+                display: block;
+                background: #ececec;
+                color: #595555;
+                cursor: pointer;
+                text-transform: uppercase;
+                font-size: 12px;
+
+                &:hover {
+                    color: #fff;
+                    background: #f7d800;
+                }
+            }
+        }
+
+
+
+    }
+
+}
+
+
+.home-footer {
+    text-align: center;
+    padding-top: 10px;
+
+    a {
+        text-decoration: none;
+    }
+}
