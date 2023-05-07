@@ -23,5 +23,9 @@ const deleteUserSevices = (userId) => {
     return axios.delete(`/api/deleteUser`, { data: { id: userId } })
 }
 
+const getAllCodeServices = (inputType) => {
+    return axios.get(`/api/allcode?type=${inputType}`);
+}
+
 // export khac nodejs
-export { handleLoginAPI, getAllUsers, createNewUserSevices, deleteUserSevices, editUserSevices }
+export { handleLoginAPI, getAllUsers, createNewUserSevices, deleteUserSevices, editUserSevices, getAllCodeServices }
