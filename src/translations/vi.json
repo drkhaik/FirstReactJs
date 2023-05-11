@@ -51,6 +51,7 @@
         "role": "Vai trò",
         "position": "Chức danh",
         "image": "Ảnh đại diện",
-        "save": "Lưu"
+        "save": "Lưu",
+        "edit": "Lưu thay đổi"
     }
 }
