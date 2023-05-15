@@ -9,23 +9,45 @@ const getAllUsers = (inputId) => {
     return axios.get(`/api/getUsers?id=${inputId}`);
 }
 
-const createNewUserSevices = (data) => {
+const createNewUserService = (data) => {
     console.log('check data from service', data);
     return axios.post(`/api/createUser`, data)
 
 }
-const editUserSevices = (data) => {
+const editUserService = (data) => {
     // console.log('check data from service', data);
     return axios.put(`/api/editUser`, data)
 }
 
-const deleteUserSevices = (userId) => {
+const deleteUserService = (userId) => {
     return axios.delete(`/api/deleteUser`, { data: { id: userId } })
 }
 
-const getAllCodeServices = (inputType) => {
+const getAllCodeService = (inputType) => {
     return axios.get(`/api/allcode?type=${inputType}`);
 }
 
+const getOutstandingDoctorService = (limit) => {
+    return axios.get(`/api/getOutstandingDoctor?limit=${limit}`);
+}
+
+const getAllDoctorService = () => {
+    return axios.get(`/api/getAllDoctor`);
+}
+
+const saveInfoDoctorService = (data) => {
+    return axios.post(`/api/saveInfoDoctor`, data)
+}
+
 // export khac nodejs
-export { handleLoginAPI, getAllUsers, createNewUserSevices, deleteUserSevices, editUserSevices, getAllCodeServices }
+export {
+    handleLoginAPI,
+    getAllUsers,
+    createNewUserService,
+    deleteUserService,
+    editUserService,
+    getAllCodeService,
+    getOutstandingDoctorService,
+    getAllDoctorService,
+    saveInfoDoctorService,
+}

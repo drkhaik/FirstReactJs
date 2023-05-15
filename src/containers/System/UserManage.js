@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import "./UserManage.scss";
-import { getAllUsers, createNewUserSevices, deleteUserSevices, editUserSevices } from '../../services/userService';
+import { getAllUsers, createNewUserService, deleteUserService, editUserService } from '../../services/userService';
 import ModalUser from './ModalUser';
 import ModalEditUser from './ModalEditUser';
 import { emitter } from '../../utils/emitter';
@@ -63,7 +63,7 @@ class UserManage extends Component {
 
     createNewUser = async (data) => {
         try {
-            let response = await createNewUserSevices(data);
+            let response = await createNewUserService(data);
             // console.log('response from create new user in service', response)
             if (response && response.errCode !== 0) {
                 alert(response.message);
@@ -84,7 +84,7 @@ class UserManage extends Component {
     handleDeleteUser = async (user) => {
         // console.log('delete', user)
         try {
-            let response = await deleteUserSevices(user.id)
+            let response = await deleteUserService(user.id)
             console.log(response)
             if (response && response.errCode !== 0) {
                 alert(response.message)
@@ -105,10 +105,10 @@ class UserManage extends Component {
     }
 
     handleUpdateUser = async (user) => {
-        // let response = await editUserSevices(user);
+        // let response = await editUserService(user);
         // console.log('check save changes props from child', response)
         try {
-            let response = await editUserSevices(user);
+            let response = await editUserService(user);
             if (response && response.errCode !== 0) {
                 alert(response.message);
             } else {

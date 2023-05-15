@@ -11,7 +11,7 @@ class Specialty extends Component {
 
     render() {
         let settings = this.props.settings;
-        console.log('specialty check: ', settings);
+        // console.log('specialty check: ', settings);
 
         return (
             <div className='main-section section-specialty'>

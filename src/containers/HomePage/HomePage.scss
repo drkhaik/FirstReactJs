@@ -28,6 +28,10 @@
     color: red !important;
 }
 
+.slick-disabled {
+    display: none !important;
+}
+
 
 // ========== ADDITIONAL Section =============
 
@@ -140,7 +144,7 @@
                 }
 
                 &.section-outstanding-doctor {
-                    background-image: url('../../assets/outstanding-doctor/doctor.png');
+                    // background-image: url('../../assets/outstanding-doctor/doctor.png');
                     width: auto;
                     height: 100%;
                     border-radius: 50%;
