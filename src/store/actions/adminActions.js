@@ -235,7 +235,7 @@ export const getAllDoctor = () => {
             let res = await getAllDoctorService();
             // console.log('check get all doctor', res)
             if (res && res.errCode === 0) {
-                toast.success("Get all Doctor succeed!");
+                toast.success("Get all Doctor info succeed!");
                 dispatch({
                     type: actionTypes.GET_ALL_DOCTOR_SUCCESS,
                     dataDoctors: res.data
@@ -258,7 +258,6 @@ export const saveInfoDoctor = (data) => {
     return async (dispatch, getState) => {
         try {
             let res = await saveInfoDoctorService(data);
-            // console.log('check get all doctor', res)
             if (res && res.errCode === 0) {
                 toast.success("Save information of Doctor succeed!");
                 dispatch({
@@ -276,6 +275,30 @@ export const saveInfoDoctor = (data) => {
             toast.error("Save information of Doctor failed!");
             dispatch({
                 type: actionTypes.SAVE_INFO_DOCTOR_FAILED
+            })
+        }
+    }
+}
+
+export const fetchAllScheduleTime = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await getAllCodeService('TIME');
+            // console.log('check get all doctor', res)
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.FETCH_ALLCODE_SCHEDULE_TIME_SUCCESS,
+                    dataTime: res.data
+                })
+            } else {
+                dispatch({
+                    type: actionTypes.FETCH_ALLCODE_SCHEDULE_TIME_FAILED
+                })
+            }
+        } catch (e) {
+            console.log('FETCH_ALLCODE_SCHEDULE_TIME_FAILED', e)
+            dispatch({
+                type: actionTypes.FETCH_ALLCODE_SCHEDULE_TIME_FAILED
             })
         }
     }

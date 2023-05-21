@@ -39,6 +39,18 @@ const saveInfoDoctorService = (data) => {
     return axios.post(`/api/saveInfoDoctor`, data)
 }
 
+const getDetailInfoDoctorService = (id) => {
+    return axios.get(`/api/get-detail-doctor-by-id?id=${id}`);
+}
+
+const getDetailSectionDoctorService = (id) => {
+    return axios.get(`/api/get-detail-section-doctor?id=${id}`);
+}
+
+const saveScheduleInfoService = (data) => {
+    return axios.post(`/api/save-schedule-info`, data);
+}
+
 // export khac nodejs
 export {
     handleLoginAPI,
@@ -50,4 +62,7 @@ export {
     getOutstandingDoctorService,
     getAllDoctorService,
     saveInfoDoctorService,
+    getDetailInfoDoctorService,
+    getDetailSectionDoctorService,
+    saveScheduleInfoService,
 }

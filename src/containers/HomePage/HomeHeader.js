@@ -6,6 +6,8 @@ import logo from '../../assets/logo.svg';
 import { FormattedMessage } from 'react-intl';
 import { LANGUAGES } from '../../utils'
 import { changeLanguageApp } from '../../store/actions';
+import { withRouter } from 'react-router'
+
 
 class HomeHeader extends Component {
 
@@ -13,6 +15,13 @@ class HomeHeader extends Component {
         // su dung ham` tu mapDispatch
         this.props.changeLanguageAppRedux(language);
     }
+
+    handleReturnHomePage = () => {
+        if (this.props.history) {
+            this.props.history.push(`/home`);
+        }
+    }
+
     render() {
         let language = this.props.lang;
         // console.log('check language: ', language)
@@ -22,11 +31,11 @@ class HomeHeader extends Component {
                     <div className='home-header-content'>
                         <div className='left-content'>
                             <i className="fas fa-bars"></i>
-                            <img className='header-logo' src={logo} />
+                            <img className='header-logo' src={logo} onClick={() => this.handleReturnHomePage()} />
                         </div>
                         <div className='center-content'>
                             <div className='child-content'>
-                                <div><b> <FormattedMessage id="home-header.speacialty" /> </b></div>
+                                <div><b> <FormattedMessage id="home-header.specialty" /> </b></div>
                                 <div className='sub-title'> <FormattedMessage id="home-header.search-doctor" /></div>
                             </div>
                             <div className='child-content'>
@@ -49,85 +58,88 @@ class HomeHeader extends Component {
                         </div>
                     </div>
                 </div>
-                <div className='home-header-banner'>
-                    <div className='content-up'>
-                        <div className='title1'><FormattedMessage id="banner.title1" />
+                {/* prop du lieu isShowBanner tu thang cha */}
+                {this.props.isShowBanner === true &&
+                    <div className='home-header-banner'>
+                        <div className='content-up'>
+                            <div className='title1'><FormattedMessage id="banner.title1" />
+                            </div>
+                            <div className='title2'> <b><FormattedMessage id="banner.title2" /> </b></div>
+                            <div className='search'>
+                                <i className="fas fa-search"></i>
+                                <input type='text' placeholder='Tìm chuyên khoa khám bệnh' />
+                            </div>
                         </div>
-                        <div className='title2'> <b><FormattedMessage id="banner.title2" /> </b></div>
-                        <div className='search'>
-                            <i className="fas fa-search"></i>
-                            <input type='text' placeholder='Tìm chuyên khoa khám bệnh' />
+                        <div className='content-down'>
+                            <div className='options'>
+                                <ul>
+                                    <li>
+                                        <a>
+                                            <div className='icon-child'><i className="fas fa-hospital"></i></div>
+                                            <p><FormattedMessage id="banner.specialty" /></p>
+
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <div className='icon-child'><i className="fas fa-mobile-alt"></i></div>
+                                            <p><FormattedMessage id="banner.remote" /></p>
+
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <div className='icon-child'><i className="fas fa-stethoscope"></i></div>
+                                            <p><FormattedMessage id="banner.general" /></p>
+
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <div className='icon-child'><i className="fas fa-flask"></i></div>
+                                            <p><FormattedMessage id="banner.medical-test" /></p>
+
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <div className='icon-child'><i className="fas fa-user-md"></i></div>
+                                            <p><FormattedMessage id="banner.mental" /></p>
+
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <div className='icon-child'><i className="fas fa-notes-medical"></i></div>
+                                            <p><FormattedMessage id="banner.dental" /></p>
+
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <div className='icon-child'><i className="fas fa-syringe"></i></div>
+                                            <p><FormattedMessage id="banner.surgery" /></p>
+
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <div className='icon-child'><i className="fas fa-briefcase-medical"></i></div>
+                                            <p><FormattedMessage id="banner.medical-product" /></p>
+
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <div className='icon-child'><i className="fas fa-stopwatch"></i></div>
+                                            <p><FormattedMessage id="banner.heath-test" /></p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                    <div className='content-down'>
-                        <div className='options'>
-                            <ul>
-                                <li>
-                                    <a>
-                                        <div className='icon-child'><i className="fas fa-hospital"></i></div>
-                                        <p><FormattedMessage id="banner.speacialty" /></p>
-
-                                    </a>
-                                </li>
-                                <li>
-                                    <a>
-                                        <div className='icon-child'><i className="fas fa-mobile-alt"></i></div>
-                                        <p><FormattedMessage id="banner.remote" /></p>
-
-                                    </a>
-                                </li>
-                                <li>
-                                    <a>
-                                        <div className='icon-child'><i className="fas fa-stethoscope"></i></div>
-                                        <p><FormattedMessage id="banner.general" /></p>
-
-                                    </a>
-                                </li>
-                                <li>
-                                    <a>
-                                        <div className='icon-child'><i className="fas fa-flask"></i></div>
-                                        <p><FormattedMessage id="banner.medical-test" /></p>
-
-                                    </a>
-                                </li>
-                                <li>
-                                    <a>
-                                        <div className='icon-child'><i className="fas fa-user-md"></i></div>
-                                        <p><FormattedMessage id="banner.mental" /></p>
-
-                                    </a>
-                                </li>
-                                <li>
-                                    <a>
-                                        <div className='icon-child'><i className="fas fa-notes-medical"></i></div>
-                                        <p><FormattedMessage id="banner.dental" /></p>
-
-                                    </a>
-                                </li>
-                                <li>
-                                    <a>
-                                        <div className='icon-child'><i className="fas fa-syringe"></i></div>
-                                        <p><FormattedMessage id="banner.surgery" /></p>
-
-                                    </a>
-                                </li>
-                                <li>
-                                    <a>
-                                        <div className='icon-child'><i className="fas fa-briefcase-medical"></i></div>
-                                        <p><FormattedMessage id="banner.medical-product" /></p>
-
-                                    </a>
-                                </li>
-                                <li>
-                                    <a>
-                                        <div className='icon-child'><i className="fas fa-stopwatch"></i></div>
-                                        <p><FormattedMessage id="banner.heath-test" /></p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                }
             </React.Fragment >
         );
     }
@@ -148,4 +160,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeHeader);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HomeHeader));

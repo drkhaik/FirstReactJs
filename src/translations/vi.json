@@ -1,6 +1,6 @@
 {
     "home-header": {
-        "speacialty": "Chuyên khoa",
+        "specialty": "Chuyên khoa",
         "search-doctor": "Tìm bác sĩ theo chuyên khoa",
         "heath-facility": "Cơ sở y tế",
         "select-clinic": "Chọn bệnh viện phòng khám",
@@ -14,7 +14,7 @@
     "banner": {
         "title1": "NỀN TẢNG Y TẾ",
         "title2": "CHĂM SÓC SỨC KHỎE TOÀN DIỆN",
-        "speacialty": "Khám chuyên khoa",
+        "specialty": "Khám chuyên khoa",
         "remote": "Khám từ xa",
         "general": "Khám tổng quát",
         "medical-test": "Xét nghiệm y học",
@@ -37,6 +37,9 @@
             "manage-specialty": "Quản lý chuyên khoa",
             "handbook": "Cẩm nang",
             "manage-handbook": "Quản lý cẩm nang"
+        },
+        "doctor": {
+            "manage-schedule": "Quản lý lịch khám bệnh "
         }
     },
     "manage-user": {
@@ -57,5 +60,12 @@
     "home-page": {
         "outstanding-doctor": "Bác sĩ nổi bật tuần qua ",
         "more-info": "Xem thêm"
+    },
+    "manage-schedule": {
+        "title": "Quản lý lịch hẹn khám bệnh của Bác sĩ",
+        "choose-doctor": "Chọn Bác sĩ",
+        "choose-date": "Chọn ngày",
+        "choose-time": "Chọn thời gian",
+        "save-info": "Lưu thông tin"
     }
 }

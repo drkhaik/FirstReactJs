@@ -1,6 +1,6 @@
 {
     "home-header": {
-        "speacialty": "Medical speacialty",
+        "specialty": "Specialty",
         "search-doctor": "Find a doctor by specialty",
         "heath-facility": "Health facilities",
         "select-clinic": "Choose hospital clinic",
@@ -14,7 +14,7 @@
     "banner": {
         "title1": "MEDICAL FLATFORM",
         "title2": "COMPREHENSIVE HEALTH CARE",
-        "speacialty": "Specialist examination",
+        "specialty": "Specialist examination",
         "remote": "Remote examination",
         "general": "General examination",
         "medical-test": "Medical test",
@@ -27,8 +27,8 @@
     "menu": {
         "admin": {
             "manage-user": "Users",
-            "manage-doctor": "Manage doctors",
-            "manage-admin": "Manage admins",
+            "manage-doctor": "Manage Doctors",
+            "manage-admin": "Manage Admins",
             "crud": "CRUD user",
             "crud-redux": "CRUD Redux",
             "clinic": "Clinics",
@@ -37,6 +37,9 @@
             "manage-specialty": "Manage specialties",
             "handbook": "Handbook",
             "manage-handbook": "Manage Handbook"
+        },
+        "doctor": {
+            "manage-schedule": "Manage Doctor's schedule"
         }
     },
     "manage-user": {
@@ -57,5 +60,12 @@
     "home-page": {
         "outstanding-doctor": "Outstanding Doctor of the week",
         "more-info": "More Info"
+    },
+    "manage-schedule": {
+        "title": "Manage Doctor's appointment schedule",
+        "choose-doctor": "Choose Doctor",
+        "choose-date": "Choose date",
+        "choose-time": "Choose time",
+        "save-info": "Save"
     }
 }

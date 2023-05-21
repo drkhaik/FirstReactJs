@@ -7,6 +7,7 @@ import * as actions from "../../store/actions";
 import './Login.scss';
 import { FormattedMessage } from 'react-intl';
 import { handleLoginAPI } from '../../services/userService';
+import { KeyCodeUtils } from '../../utils';
 
 // import adminService from '../../services/adminService';
 
@@ -72,6 +73,18 @@ class Login extends Component {
         })
     }
 
+
+    handleKeyDownEnter = (event) => {
+        const keyCode = event.keyCode;
+        // if (event.key === 'Enter' || event.key === 13) {
+
+        // }
+        if (keyCode === KeyCodeUtils.ENTER) {
+            event.preventDefault();
+            this.handleLogin();
+        }
+    }
+
     render() {
         return (
             <div className='login-background'>
@@ -97,6 +110,7 @@ class Login extends Component {
                                     placeholder='Enter your password'
                                     value={this.state.password}
                                     onChange={(event) => this.handleOnChangePassword(event)}
+                                    onKeyDown={(event) => this.handleKeyDownEnter(event)}
                                 />
 
                                 <span className='eye' onClick={() => { this.showHidePassword() }}>

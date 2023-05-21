@@ -5,6 +5,7 @@ import { FormattedMessage } from 'react-intl';
 import Slider from "react-slick";
 import * as actions from '../../../store/actions'
 import { LANGUAGES } from '../../../utils';
+import { withRouter } from 'react-router'
 
 
 class OutstandingDoctor extends Component {
@@ -26,6 +27,14 @@ class OutstandingDoctor extends Component {
 
     componentDidMount() {
         this.props.loadOutstandingDoctor();
+    }
+
+    handleViewDetailDoctor = (infoDoctor) => {
+        console.log('view info: ', infoDoctor)
+        // redirect
+        if (this.props.history) {
+            this.props.history.push(`/detail-doctor/${infoDoctor.id}`);
+        }
     }
 
     render() {
@@ -52,10 +61,10 @@ class OutstandingDoctor extends Component {
                                     if (item.image) {
                                         imageBase64 = new Buffer(item.image, 'base64').toString('binary');
                                     }
-                                    let nameVi = `${item.positionData.valueVi}, ${item.lastName} ${item.firstName}`
-                                    let nameEn = `${item.positionData.valueEn}, ${item.firstName} ${item.lastName}`
+                                    let nameVi = `${item.positionData.valueVi} ${item.lastName} ${item.firstName}`
+                                    let nameEn = `${item.positionData.valueEn} ${item.firstName} ${item.lastName}`
                                     return (
-                                        <div className='section-customize circle-customize'>
+                                        <div className='section-customize circle-customize' key={index} onClick={() => this.handleViewDetailDoctor(item)}>
                                             <div className='outer-img'>
                                                 <div className='img section-outstanding-doctor'
                                                     style={{ backgroundImage: `url(${imageBase64})` }}
@@ -92,4 +101,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(OutstandingDoctor);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(OutstandingDoctor));

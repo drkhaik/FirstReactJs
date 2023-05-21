@@ -1,0 +1,27 @@
+.manage-schedule-container {
+    .choose-time-container{
+        // height: 150px;
+        // border: 1px solid red;
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin: 20px 0;
+        background-color: #ddd;
+        height: auto;
+        justify-content: center;
+
+        button {
+            padding: 5px 15px;
+        }
+        .btn-choose-time {
+            background-color: #fff8ae;
+            width: 23%;
+            &.active{
+                background-color: #45c3d2;
+                color: white;
+                border: 1px solid #fff8ae;
+            } 
+        }
+    }
+    
+}
