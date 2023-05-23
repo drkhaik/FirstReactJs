@@ -6,7 +6,7 @@
         "select-clinic": "Choose hospital clinic",
         "doctor": "Doctor",
         "select-doctor": "Choose a good doctor",
-        "combo": "Checkup package",
+        "combo": "Medical Services",
         "check-health": "General health check",
         "support": "Support",
         "welcome": "Welcome, "
@@ -67,5 +67,13 @@
         "choose-date": "Choose date",
         "choose-time": "Choose time",
         "save-info": "Save"
+    },
+    "client": {
+        "doctor-schedule": {
+            "schedule-title": "Schedule",
+            "no-schedule": "No appointments available during this time, please choose another date!",
+            "choose": "Choose",
+            "book-free": "and book (free)!"
+        }
     }
 }

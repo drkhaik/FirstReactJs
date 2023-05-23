@@ -67,5 +67,13 @@
         "choose-date": "Chọn ngày",
         "choose-time": "Chọn thời gian",
         "save-info": "Lưu thông tin"
+    },
+    "client": {
+        "doctor-schedule": {
+            "schedule-title": "Lịch khám",
+            "no-schedule": "Không có lịch hẹn nào trong thời gian này, vui lòng chọn ngày khác!",
+            "choose": "Chọn",
+            "book-free": "và đặt (miễn phí)!"
+        }
     }
 }

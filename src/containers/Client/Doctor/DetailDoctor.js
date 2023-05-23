@@ -4,12 +4,14 @@ import HomeHeader from '../../HomePage/HomeHeader';
 import "./DetailDoctor.scss";
 import { getDetailInfoDoctorService } from '../../../services/userService';
 import { LANGUAGES } from '../../../utils';
+import DoctorSchedule from './DoctorSchedule';
 
 class DetailDoctor extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            detailDoctor: {}
+            detailDoctor: {},
+            doctorId: -1
         }
     }
 
@@ -20,13 +22,16 @@ class DetailDoctor extends Component {
     async componentDidMount() {
         if (this.props.match && this.props.match.params && this.props.match.params.id) {
             let id = this.props.match.params.id;
+            this.setState({
+                doctorId: id,
+            })
             let res = await getDetailInfoDoctorService(id);
             if (res && res.errCode === 0) {
                 this.setState({
                     detailDoctor: res.data
                 })
             }
-            // console.log("check res", res)
+            // console.log("check res", res.data.id)
         }
     }
 
@@ -34,8 +39,9 @@ class DetailDoctor extends Component {
         let language = this.props.lang;
         {/* {this.props.isLoggedIn && <Header />} */ }
         // console.log(this.props.match.params.id)
-        console.log('check detail doctor: ', this.state.detailDoctor)
+        // console.log('check detail doctor: ', this.state.detailDoctor)
         let { detailDoctor } = this.state;
+        // console.log("check id", detailDoctor.id)
         let nameVi = '', nameEn = '';
         if (detailDoctor && detailDoctor.positionData) {
             nameVi = `${detailDoctor.positionData.valueVi} ${detailDoctor.lastName} ${detailDoctor.firstName}`
@@ -64,7 +70,12 @@ class DetailDoctor extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className='doctor-schedule'></div>
+                    <div className='doctor-schedule'>
+                        <div className='content-left'>
+                            <DoctorSchedule doctorIdFromParent={this.state.doctorId} />
+                        </div>
+                        <div className='content-right'></div>
+                    </div>
                     <div className='doctor-detail-info'>
                         {detailDoctor.Detail_Section && detailDoctor.Detail_Section.contentHTML
                             &&
@@ -81,7 +92,7 @@ class DetailDoctor extends Component {
 
 const mapStateToProps = state => {
     return {
-        DetailDoctorMenuPath: state.app.DetailDoctorMenuPath,
+        // DetailDoctorMenuPath: state.app.DetailDoctorMenuPath,
         isLoggedIn: state.user.isLoggedIn,
         lang: state.app.language,
     };

@@ -61,8 +61,10 @@ class OutstandingDoctor extends Component {
                                     if (item.image) {
                                         imageBase64 = new Buffer(item.image, 'base64').toString('binary');
                                     }
-                                    let nameVi = `${item.positionData.valueVi} ${item.lastName} ${item.firstName}`
-                                    let nameEn = `${item.positionData.valueEn} ${item.firstName} ${item.lastName}`
+                                    let nameVi = `${item.lastName} ${item.firstName}`
+                                    let nameEn = `${item.firstName} ${item.lastName}`
+                                    let positionVi = `${item.positionData.valueVi}`
+                                    let positionEn = `${item.positionData.valueEn}`
                                     return (
                                         <div className='section-customize circle-customize' key={index} onClick={() => this.handleViewDetailDoctor(item)}>
                                             <div className='outer-img'>
@@ -71,7 +73,9 @@ class OutstandingDoctor extends Component {
                                                 > </div>
                                             </div>
                                             <div className='text text-center'>
-                                                <h3>{language === LANGUAGES.VI ? nameVi : nameEn}</h3>
+                                                <h3>{language === LANGUAGES.VI
+                                                    ? <> {positionVi} <span className='outstanding-doctor-name'> {nameVi}</span> </>
+                                                    : <> {positionEn} <span className='outstanding-doctor-name'> {nameEn}</span> </>}</h3>
                                                 <h4>Cơ xương khớp </h4>
                                             </div>
                                         </div>

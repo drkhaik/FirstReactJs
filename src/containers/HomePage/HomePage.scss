@@ -101,6 +101,15 @@
                     height: 120px;
                     margin: 0 auto;
                 }
+                .text {
+                    h3 {
+                        font-size: 14px;
+                        .outstanding-doctor-name{
+                            font-weight: 600;
+                            color: #333;
+                        }
+                    }
+                }
             }
 
             &.handbook-customize {
@@ -157,7 +166,7 @@
             }
 
             .text {
-                margin-top: 10px;
+                margin-top: 15px;
 
                 h3 {
                     font-size: 13px;
@@ -219,7 +228,6 @@
     }
 
 }
-
 
 .home-footer {
     text-align: center;

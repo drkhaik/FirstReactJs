@@ -139,7 +139,7 @@ class SystemDoctor extends Component {
                 return;
             }
         }
-        console.log('drkhaik check result', result)
+        // console.log('drkhaik check result', result)
 
         let res = await saveScheduleInfoService({
             // send data to compare to Back end Node JS
@@ -147,6 +147,13 @@ class SystemDoctor extends Component {
             doctorId: selectedDoctor.value,
             date: formattedDate,
         })
+
+        if (res && res.errCode === 0) {
+            toast.success("Save ScheduleInfoService successfully!");
+        } else {
+            toast.error("saveScheduleInfoService Error!");
+            console.log("saveScheduleInfoService Error >>> res", res)
+        }
     }
 
     render() {
@@ -155,6 +162,7 @@ class SystemDoctor extends Component {
         // console.log("check props ", this.props)
         let { listAllScheduleTime } = this.state;
         let language = this.props.lang;
+        let yesterday = new Date(new Date().setDate(new Date().getDate() - 1));
         return (
 
             <div className='manage-schedule-container container'>
@@ -178,7 +186,7 @@ class SystemDoctor extends Component {
                                 onChange={this.handleOnChangeDatePicker}
                                 className="form-control"
                                 value={this.state.selectedDate}
-                                minDate={new Date()}
+                                minDate={yesterday}
                             />
                         </div>
                         <div className='col-12 choose-time-container py-3'>

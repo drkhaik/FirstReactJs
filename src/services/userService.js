@@ -51,6 +51,10 @@ const saveScheduleInfoService = (data) => {
     return axios.post(`/api/save-schedule-info`, data);
 }
 
+const getScheduleInfoByDateService = (doctorId, date) => {
+    return axios.get(`/api/get-schedule-info-by-date?doctorId=${doctorId}&date=${date}`)
+}
+
 // export khac nodejs
 export {
     handleLoginAPI,
@@ -65,4 +69,5 @@ export {
     getDetailInfoDoctorService,
     getDetailSectionDoctorService,
     saveScheduleInfoService,
+    getScheduleInfoByDateService,
 }
