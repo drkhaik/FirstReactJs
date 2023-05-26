@@ -42,21 +42,6 @@
             "manage-schedule": "Quản lý lịch khám bệnh "
         }
     },
-    "manage-user": {
-        "add": "Thêm mới người dùng",
-        "email": "Email",
-        "password": "Mật khẩu",
-        "firstName": "Tên",
-        "lastName": "Họ",
-        "address": "Địa chỉ",
-        "phoneNumber": "Số điện thoại",
-        "gender": "Giới tính",
-        "role": "Vai trò",
-        "position": "Chức danh",
-        "image": "Ảnh đại diện",
-        "save": "Lưu",
-        "edit": "Lưu thay đổi"
-    },
     "home-page": {
         "outstanding-doctor": "Bác sĩ nổi bật tuần qua ",
         "more-info": "Xem thêm"
@@ -74,6 +59,43 @@
             "no-schedule": "Không có lịch hẹn nào trong thời gian này, vui lòng chọn ngày khác!",
             "choose": "Chọn",
             "book-free": "và đặt (miễn phí)!"
+        },
+        "doctor-extra-info": {
+            "address": "Địa chỉ khám",
+            "price": "Giá khám: ",
+            "payment-method": "Người bệnh có thể thanh toán chi phí bằng hình thức: ",
+            "show-detail": "Xem chi tiết",
+            "hide-detail": "Ẩn bảng giá"
+        }
+    },
+    "admin": {
+        "manage-doctor": {
+            "title": "Thêm thông tin cho Bác sĩ",
+            "choose-doctor": "Chọn bác sĩ",
+            "short-introduction": "Thông tin giới thiệu",
+            "save": "Lưu thông tin",
+            "add": "Thêm thông tin",
+            "price": "Giá khám (VND)",
+            "payment": "Phương thức thanh toán",
+            "province": "Tỉnh/Thành phố",
+            "name-clinic": "Tên phòng khám",
+            "address-clinic": "Địa chỉ phòng khám",
+            "note": "Ghi chú"
+        },
+        "manage-user": {
+            "add": "Thêm mới người dùng",
+            "email": "Email",
+            "password": "Mật khẩu",
+            "firstName": "Tên",
+            "lastName": "Họ",
+            "address": "Địa chỉ",
+            "phoneNumber": "Số điện thoại",
+            "gender": "Giới tính",
+            "role": "Vai trò",
+            "position": "Chức danh",
+            "image": "Ảnh đại diện",
+            "save": "Lưu",
+            "edit": "Lưu thay đổi"
         }
     }
 }

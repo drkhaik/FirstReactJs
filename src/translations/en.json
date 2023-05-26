@@ -2,11 +2,11 @@
     "home-header": {
         "specialty": "Specialty",
         "search-doctor": "Find a doctor by specialty",
-        "heath-facility": "Health facilities",
+        "heath-facility": "Health Facilities",
         "select-clinic": "Choose hospital clinic",
         "doctor": "Doctor",
         "select-doctor": "Choose a good doctor",
-        "combo": "Medical Services",
+        "combo": "Medical Check-up Package",
         "check-health": "General health check",
         "support": "Support",
         "welcome": "Welcome, "
@@ -42,21 +42,6 @@
             "manage-schedule": "Manage Doctor's schedule"
         }
     },
-    "manage-user": {
-        "add": "Add new user",
-        "email": "Email",
-        "password": "Password",
-        "firstName": "First Name",
-        "lastName": "Last name",
-        "address": "Address",
-        "phoneNumber": "Phone Number",
-        "gender": "Gender",
-        "role": "Role",
-        "position": "Position",
-        "image": "Avatar",
-        "save": "Save",
-        "edit": "Save changes"
-    },
     "home-page": {
         "outstanding-doctor": "Outstanding Doctor of the week",
         "more-info": "More Info"
@@ -74,6 +59,43 @@
             "no-schedule": "No appointments available during this time, please choose another date!",
             "choose": "Choose",
             "book-free": "and book (free)!"
+        },
+        "doctor-extra-info": {
+            "address": "Address",
+            "price": "Consultation fee: ",
+            "payment-method": "Patients can pay for expenses in the following ways: ",
+            "show-detail": "Show detail",
+            "hide-detail": "Hide detail"
+        }
+    },
+    "admin": {
+        "manage-doctor": {
+            "title": "Add more info for Doctor",
+            "choose-doctor": "Choose Doctor",
+            "short-introduction": "Short introduction",
+            "save": "Save",
+            "add": "Add",
+            "price": "Doctor's consultation fee (Dollar)",
+            "payment": "Payment method",
+            "province": "Province/City",
+            "name-clinic": "Clinic name",
+            "address-clinic": "Clinic address",
+            "note": "Notes"
+        },
+        "manage-user": {
+            "add": "Add new user",
+            "email": "Email",
+            "password": "Password",
+            "firstName": "First Name",
+            "lastName": "Last name",
+            "address": "Address",
+            "phoneNumber": "Phone Number",
+            "gender": "Gender",
+            "role": "Role",
+            "position": "Position",
+            "image": "Avatar",
+            "save": "Save",
+            "edit": "Save changes"
         }
     }
 }

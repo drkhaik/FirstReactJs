@@ -1,5 +1,5 @@
 .doctor-schedule-container {
-    border-right: 1px solid #ddd;
+   
     height: 100%;
     .all-available-day{
         .select-day{
@@ -16,6 +16,7 @@
     }
 
     .all-available-schedule{
+        border-right: 1px solid #ddd;
         .text-calendar{
             margin: 10px 0;
             color: #333;

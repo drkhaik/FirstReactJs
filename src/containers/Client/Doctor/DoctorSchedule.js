@@ -76,9 +76,12 @@ class DoctorSchedule extends Component {
         if (prevProps.doctorIdFromParent !== this.props.doctorIdFromParent) {
             let arrDay = this.getArrDay(this.props.lang);
             let res = await getScheduleInfoByDateService(this.props.doctorIdFromParent, arrDay[0].value);
-            this.setState({
-                allAvailableSchedule: res.data ? res.data : []
-            })
+            // console.log("check res get schedule", res)
+            if (res && res.errCode === 0) {
+                this.setState({
+                    allAvailableSchedule: res.data ? res.data : []
+                })
+            }
         }
 
     }
@@ -101,7 +104,7 @@ class DoctorSchedule extends Component {
     render() {
         let { allAvailableDays, allAvailableSchedule } = this.state;
         let language = this.props.lang;
-        console.log("check state:", this.state.allAvailableDays)
+        // console.log("check state:", this.state.allAvailableDays)
         return (
             <div className='doctor-schedule-container'>
                 <div className='all-available-day'>

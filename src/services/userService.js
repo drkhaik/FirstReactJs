@@ -55,6 +55,10 @@ const getScheduleInfoByDateService = (doctorId, date) => {
     return axios.get(`/api/get-schedule-info-by-date?doctorId=${doctorId}&date=${date}`)
 }
 
+const getExtraInfoDoctorByIdService = (doctorId) => {
+    return axios.get(`/api/get-extra-info-doctor-by-id?doctorId=${doctorId}`)
+}
+
 // export khac nodejs
 export {
     handleLoginAPI,
@@ -70,4 +74,5 @@ export {
     getDetailSectionDoctorService,
     saveScheduleInfoService,
     getScheduleInfoByDateService,
+    getExtraInfoDoctorByIdService,
 }

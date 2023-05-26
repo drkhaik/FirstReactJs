@@ -219,18 +219,18 @@ class UserRedux extends Component {
                 <div className="user-redux-body">
                     <div className='container'>
                         <div className='row form-container'>
-                            <div className='col-12 my-3'><FormattedMessage id="manage-user.add" /></div>
+                            <div className='col-12 my-3'><FormattedMessage id="admin.manage-user.add" /></div>
                             <div className='col-12'>{isLoadingGender === true ? "Loading gender" : ''}</div>
                             <div class="row col-12">
                                 <div class="form-group col-6">
-                                    <label class="mb-1 mt-2"><FormattedMessage id="manage-user.email" /></label>
+                                    <label class="mb-1 mt-2"><FormattedMessage id="admin.manage-user.email" /></label>
                                     <input type="email" class="form-control" placeholder="Email"
                                         value={email}
                                         onChange={(event) => { this.handleOnChangeInput(event, "email") }}
                                         disabled={this.state.action === CRUD_ACTIONS.EDIT} />
                                 </div>
                                 <div class="form-group col-6">
-                                    <label class="mb-1 mt-2"><FormattedMessage id="manage-user.password" /></label>
+                                    <label class="mb-1 mt-2"><FormattedMessage id="admin.manage-user.password" /></label>
                                     <input type="password" class="form-control" placeholder="Password"
                                         value={password}
                                         onChange={(event) => { this.handleOnChangeInput(event, "password") }}
@@ -239,13 +239,13 @@ class UserRedux extends Component {
                             </div>
                             <div class="row col-12">
                                 <div class="form-group col-6">
-                                    <label class="mb-1 mt-2"><FormattedMessage id="manage-user.firstName" /></label>
+                                    <label class="mb-1 mt-2"><FormattedMessage id="admin.manage-user.firstName" /></label>
                                     <input type="text" class="form-control" placeholder="First name"
                                         value={firstName}
                                         onChange={(event) => { this.handleOnChangeInput(event, "firstName") }} />
                                 </div>
                                 <div class="form-group col-6">
-                                    <label class="mb-1 mt-2"><FormattedMessage id="manage-user.lastName" /></label>
+                                    <label class="mb-1 mt-2"><FormattedMessage id="admin.manage-user.lastName" /></label>
                                     <input type="text" class="form-control" placeholder="Last name"
                                         value={lastName}
                                         onChange={(event) => { this.handleOnChangeInput(event, "lastName") }} />
@@ -253,13 +253,13 @@ class UserRedux extends Component {
                             </div>
                             <div class="row col-12">
                                 <div class="form-group col-md-9">
-                                    <label class="mb-1 mt-2"><FormattedMessage id="manage-user.address" /></label>
+                                    <label class="mb-1 mt-2"><FormattedMessage id="admin.manage-user.address" /></label>
                                     <input type="text" class="form-control" placeholder="1234 Main St"
                                         value={address}
                                         onChange={(event) => { this.handleOnChangeInput(event, "address") }} />
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label class="mb-1 mt-2"><FormattedMessage id="manage-user.phoneNumber" /></label>
+                                    <label class="mb-1 mt-2"><FormattedMessage id="admin.manage-user.phoneNumber" /></label>
                                     <input type="text" class="form-control"
                                         value={phoneNumber}
                                         onChange={(event) => { this.handleOnChangeInput(event, "phoneNumber") }} />
@@ -267,7 +267,7 @@ class UserRedux extends Component {
                             </div>
                             <div class="row col-12">
                                 <div class="form-group col-md-3">
-                                    <label class="mb-1 mt-2"><FormattedMessage id="manage-user.gender" /></label>
+                                    <label class="mb-1 mt-2"><FormattedMessage id="admin.manage-user.gender" /></label>
                                     <select class="form-control" value={gender}
                                         onChange={(event) => { this.handleOnChangeInput(event, "gender") }} >
                                         {genderArrRender && genderArrRender.length > 0 &&
@@ -282,7 +282,7 @@ class UserRedux extends Component {
                                     </select>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label class="mb-1 mt-2"><FormattedMessage id="manage-user.role" /></label>
+                                    <label class="mb-1 mt-2"><FormattedMessage id="admin.manage-user.role" /></label>
                                     <select class="form-control" value={role}
                                         onChange={(event) => { this.handleOnChangeInput(event, "role") }}>
                                         {roleArrRender && roleArrRender.length > 0 &&
@@ -297,7 +297,7 @@ class UserRedux extends Component {
                                     </select>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label class="mb-1 mt-2"><FormattedMessage id="manage-user.position" /></label>
+                                    <label class="mb-1 mt-2"><FormattedMessage id="admin.manage-user.position" /></label>
                                     <select class="form-control" value={position}
                                         onChange={(event) => { this.handleOnChangeInput(event, "position") }}>
                                         {positionArrRender && positionArrRender.length > 0 &&
@@ -312,7 +312,7 @@ class UserRedux extends Component {
                                     </select>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label class="mb-1 mt-2"><FormattedMessage id="manage-user.image" /></label>
+                                    <label class="mb-1 mt-2"><FormattedMessage id="admin.manage-user.image" /></label>
                                     <div className='preview-img-container'>
                                         <input type="file" id='previewImg' hidden
                                             onChange={(event) => { this.handleOnChangeImage(event) }}
@@ -330,8 +330,8 @@ class UserRedux extends Component {
                         <button type="submit" class={this.state.action === CRUD_ACTIONS.EDIT ? "btn btn-warning mb-3 mt-3" : "btn btn-primary mb-3 mt-3"}
                             onClick={() => { this.handleSaveUser() }}>
                             {this.state.action === CRUD_ACTIONS.EDIT ?
-                                <FormattedMessage id="manage-user.edit" />
-                                : <FormattedMessage id="manage-user.save" />}
+                                <FormattedMessage id="admin.manage-user.edit" />
+                                : <FormattedMessage id="admin.manage-user.save" />}
 
                         </button>
                         <TableManageUser

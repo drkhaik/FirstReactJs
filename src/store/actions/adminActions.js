@@ -30,6 +30,14 @@ export const fetchGenderStart = () => {
     }
 }
 
+export const fetchGenderSuccess = (genderData) => ({
+    type: actionTypes.FETCH_GENDER_SUCCESS,
+    data: genderData
+})
+export const fetchGenderFalied = () => ({
+    type: actionTypes.FETCH_GENDER_FAILED
+})
+
 export const fetchPositionStart = () => {
     // type: actionTypes.FETCH_GENDER_START
     return async (dispatch, getState) => {
@@ -66,13 +74,6 @@ export const fetchRoleStart = () => {
     }
 }
 
-export const fetchGenderSuccess = (genderData) => ({
-    type: actionTypes.FETCH_GENDER_SUCCESS,
-    data: genderData
-})
-export const fetchGenderFalied = () => ({
-    type: actionTypes.FETCH_GENDER_FAILED
-})
 
 export const fetchPositionSuccess = (positionData) => ({
     type: actionTypes.FETCH_POSITION_SUCCESS,
@@ -303,3 +304,40 @@ export const fetchAllScheduleTime = () => {
         }
     }
 }
+
+export const fetchDoctorRequiredInfo = () => {
+    // type: actionTypes.FETCH_GENDER_START
+    return async (dispatch, getState) => {
+        try {
+            dispatch({ type: actionTypes.FETCH_REQUIRED_DOCTOR_INFO_START })
+            let resPrice = await getAllCodeService('PRICE');
+            let resPayment = await getAllCodeService('PAYMENT');
+            let resProvince = await getAllCodeService('PROVINCE');
+            if (resPrice && resPrice.errCode === 0
+                && resPayment && resPayment.errCode === 0
+                && resProvince && resProvince.errCode === 0
+            ) {
+                let data = {
+                    resPrice: resPrice.data,
+                    resPayment: resPayment.data,
+                    resProvince: resProvince.data,
+                }
+                // console.log('hoi dan it check get state: ', getState)
+                dispatch(fetchDoctorRequiredInfoSuccess(data))
+            } else {
+                dispatch(fetchDoctorRequiredInfoFailed())
+            }
+        } catch (e) {
+            dispatch(fetchDoctorRequiredInfoFailed());
+            console.log('fetchDoctorRequiredInfoFailed error ', e)
+        }
+    }
+}
+
+export const fetchDoctorRequiredInfoSuccess = (allRequiredData) => ({
+    type: actionTypes.FETCH_REQUIRED_DOCTOR_INFO_SUCCESS,
+    data: allRequiredData
+})
+export const fetchDoctorRequiredInfoFailed = () => ({
+    type: actionTypes.FETCH_REQUIRED_DOCTOR_INFO_FAILED
+})
