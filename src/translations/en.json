@@ -66,6 +66,21 @@
             "payment-method": "Patients can pay for expenses in the following ways: ",
             "show-detail": "Show detail",
             "hide-detail": "Hide detail"
+        },
+        "booking-modal": {
+            "appointment-info": "Appointment information!",
+            "fullName": "Full name (*)",
+            "email": "Email (*)",
+            "phone-number": "Phone number (*)",
+            "address": "Address",
+            "gender": "Gender",
+            "reason": "Reasons (*)",
+            "btn-confirm": "Confirm",
+            "btn-cancel": "Cancel"
+        },
+        "verify-email": {
+            "verify-success": "Appointment confirmed successfully!",
+            "verify-fail": "Appointment does not exist or has already been confirmed!"
         }
     },
     "admin": {

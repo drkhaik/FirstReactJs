@@ -66,6 +66,21 @@
             "payment-method": "Người bệnh có thể thanh toán chi phí bằng hình thức: ",
             "show-detail": "Xem chi tiết",
             "hide-detail": "Ẩn bảng giá"
+        },
+        "booking-modal": {
+            "appointment-info": "Thông tin đặt lịch khám bệnh!",
+            "fullName": "Họ tên bệnh nhân (*)",
+            "email": "Email (*)",
+            "phone-number": "Số điện thoại (*)",
+            "address": "Địa chỉ",
+            "gender": "Giới tính",
+            "reason": "Lý do khám (*)",
+            "btn-confirm": "Xác nhận đặt khám",
+            "btn-cancel": "Huỷ bỏ"
+        },
+        "verify-email": {
+            "verify-success": "Xác nhận lịch hẹn thành công!",
+            "verify-fail": "Lịch hẹn không tồn tại hoặc đã được xác nhận!"
         }
     },
     "admin": {

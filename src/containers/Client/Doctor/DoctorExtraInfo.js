@@ -42,7 +42,7 @@ class DoctorExtraInfo extends Component {
     render() {
         let { isShowExtraInfo, allExtraInfo } = this.state;
         let language = this.props.lang;
-        console.log("check state extra info", this.state)
+        // console.log("check state extra info", this.state)
         let priceVi = ''; let priceEn = '';
         if (allExtraInfo && allExtraInfo.priceData) {
             priceVi = `${allExtraInfo.priceData.valueVi}`

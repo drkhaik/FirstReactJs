@@ -59,6 +59,17 @@ const getExtraInfoDoctorByIdService = (doctorId) => {
     return axios.get(`/api/get-extra-info-doctor-by-id?doctorId=${doctorId}`)
 }
 
+const getProfileDoctorByIdService = (doctorId) => {
+    return axios.get(`/api/get-profile-doctor-by-id?doctorId=${doctorId}`)
+}
+const makeAnAppointmentService = (data) => {
+    return axios.post(`/api/patient-book-an-appointment`, data);
+}
+
+const verifyAnAppointmentService = (data) => {
+    return axios.post(`/api/verify-an-appointment`, data);
+}
+
 // export khac nodejs
 export {
     handleLoginAPI,
@@ -75,4 +86,7 @@ export {
     saveScheduleInfoService,
     getScheduleInfoByDateService,
     getExtraInfoDoctorByIdService,
+    getProfileDoctorByIdService,
+    makeAnAppointmentService,
+    verifyAnAppointmentService,
 }

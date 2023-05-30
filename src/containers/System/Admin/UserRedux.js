@@ -44,6 +44,8 @@ class UserRedux extends Component {
 
     }
 
+    // goi api la bat dong bo, nen mot lan Mount la ko du, phai su dung did update de mount lai nhieu lan lay du lieu
+    // cal Api is async, non-blocking, so once mount isn't enough, we have to use didUpdate to mount over and over to get Data
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (prevProps.genderRedux !== this.props.genderRedux) {
             let genderArrRedux = this.props.genderRedux;

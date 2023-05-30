@@ -9,6 +9,7 @@ import MdEditor from 'react-markdown-editor-lite'; // npm install --save react-m
 import 'react-markdown-editor-lite/lib/index.css';
 import Select from 'react-select';
 import { getDetailSectionDoctorService, getExtraInfoDoctorByIdService } from '../../../services/userService';
+import _ from 'lodash';
 
 // const options = [
 //     { value: 'chocolate', label: 'Chocolate' },
@@ -187,7 +188,7 @@ class ManageDoctor extends Component {
         let { listPayment, listPrice, listProvince } = this.state;
         let res2 = await getExtraInfoDoctorByIdService(selectedDoctor.value);
         // console.log("check res2", res2)
-        if (res2 && res2.errCode === 0 && res2.data) {
+        if (res2 && res2.errCode === 0 && !_.isEmpty(res2.data)) {
             // object.value = item.keyMap; use find function 
             let selectedPrice = listPrice.find(item => {
                 return item && item.value === res2.data.priceId; // PRI3 === PRI3
@@ -198,7 +199,6 @@ class ManageDoctor extends Component {
             let selectedProvince = listProvince.find(item => {
                 return item && item.value === res2.data.provinceId;
             })
-            // console.log("check value findItem", findItem, listPayment)
             this.setState({
                 selectedPrice: selectedPrice,
                 selectedPayment: selectedPayment,
@@ -229,9 +229,9 @@ class ManageDoctor extends Component {
             doctorId: this.state.selectedDoctor.value,
             actions: hasOldData === true ? CRUD_ACTIONS.EDIT : CRUD_ACTIONS.CREATE,
 
-            selectedPrice: this.state.selectedPrice.value,
-            selectedPayment: this.state.selectedPayment.value,
-            selectedProvince: this.state.selectedProvince.value,
+            selectedPrice: this.state.selectedPrice ? this.state.selectedPrice.value : '',
+            selectedPayment: this.state.selectedPayment ? this.state.selectedPayment.value : '',
+            selectedProvince: this.state.selectedProvince ? this.state.selectedProvince.value : '',
             nameClinic: this.state.nameClinic,
             addressClinic: this.state.addressClinic,
             note: this.state.note,
