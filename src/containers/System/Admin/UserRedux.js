@@ -167,8 +167,6 @@ class UserRedux extends Component {
             })
         }
 
-        console.log('check state: ', this.state)
-
     }
 
     handleOnChangeInput = (event, name) => {
@@ -201,11 +199,13 @@ class UserRedux extends Component {
             previewImgURL: imageBase64,
             action: CRUD_ACTIONS.EDIT
         })
+        // console.log('hoidanit check state', this.state)
     }
 
     render() {
         // console.log('check array of gender: ', this.state.genderArr);
         // console.log('check language 2: ', LANGUAGES);
+        // console.log("check state ", this.state)
         let genderArrRender = this.state.genderArr;
         let roleArrRender = this.state.roleArr;
         let positionArrRender = this.state.positionArr;

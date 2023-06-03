@@ -44,7 +44,8 @@
     },
     "home-page": {
         "outstanding-doctor": "Bác sĩ nổi bật tuần qua ",
-        "more-info": "Xem thêm"
+        "more-info": "Xem thêm",
+        "specialty-popular": "Chuyên khoa phổ biến"
     },
     "manage-schedule": {
         "title": "Quản lý lịch hẹn khám bệnh của Bác sĩ",
@@ -95,7 +96,9 @@
             "province": "Tỉnh/Thành phố",
             "name-clinic": "Tên phòng khám",
             "address-clinic": "Địa chỉ phòng khám",
-            "note": "Ghi chú"
+            "note": "Ghi chú",
+            "specialtyId": "Chọn chuyên khoa",
+            "clinicId": "Chọn phòng khám"
         },
         "manage-user": {
             "add": "Thêm mới người dùng",
@@ -111,6 +114,12 @@
             "image": "Ảnh đại diện",
             "save": "Lưu",
             "edit": "Lưu thay đổi"
+        },
+        "manage-specialty": {
+            "manage-specialty": "Quản lý chuyên khoa",
+            "name-specialty": "Tên chuyên khoa",
+            "upload-image": "Tải ảnh",
+            "desc-specialty": "Thông tin chi tiết chuyên khoa"
         }
     }
 }

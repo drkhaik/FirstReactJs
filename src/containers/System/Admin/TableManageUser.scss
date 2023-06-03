@@ -37,26 +37,22 @@
             font-size: 15px;
         }
     }
-}
-
-#tableManagerUser td,
-#tableManagerUser th {
+    td,th {
     border: 1px solid #ddd;
     padding: 8px;
-}
+    }
+    tr:hover {
+        background-color: #ddd;
+    }
+    th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #04AA6D;
+        color: white;
+    }
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
 
-#tableManagerUser tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-#tableManagerUser tr:hover {
-    background-color: #ddd;
-}
-
-#tableManagerUser th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #04AA6D;
-    color: white;
 }

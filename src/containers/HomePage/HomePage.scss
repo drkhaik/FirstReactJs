@@ -95,6 +95,8 @@
                 background-color: #fff;
                 padding: 10px 5px;
                 cursor: pointer;
+                box-shadow: 4px 4px 4px #20212447;
+                border-radius: 10px;
 
                 .outer-img {
                     width: 120px;
@@ -135,6 +137,15 @@
                     cursor: pointer;
                 }
             }
+            &.specialty-child{
+                cursor: pointer;
+                &:hover{
+                    color: #45c3d2;
+                }
+                .specialty-name {
+                    padding: 10px 0;
+                }
+            }
 
             .img {
                 width: 278px;
@@ -145,7 +156,7 @@
                 background-color: #eee;
 
                 &.section-specialty {
-                    background-image: url('../../assets/specialty/tao-hinh-ham-mat.jpg');
+                    // background-image: url('../../assets/specialty/tao-hinh-ham-mat.jpg');
                 }
 
                 &.section-health-facility {

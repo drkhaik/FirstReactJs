@@ -7,6 +7,7 @@ import { getProfileDoctorByIdService } from '../../../services/userService';
 import NumberFormat from 'react-number-format';
 import _ from 'lodash';
 import moment from 'moment';
+import { Link } from 'react-router-dom';
 
 class ProfileDoctor extends Component {
     constructor(props) {
@@ -36,15 +37,16 @@ class ProfileDoctor extends Component {
     }
 
     async componentDidUpdate(prevProps, prevState, snapshot) {
-        if (prevProps.lanag !== this.props.lang) {
+        if (prevProps.lang !== this.props.lang) {
 
         }
-        // if (prevProps.doctorId !== this.props.doctorId) {
-        //      this.getProfileDoctorInfo(this.props.doctorId);
-        //     this.setState({
-        //         dataProfile: data
-        //     })
-        // }
+        if (prevProps.doctorId !== this.props.doctorId) {
+            let id = this.props.doctorId;
+            let data = await this.getProfileDoctorInfo(id);
+            this.setState({
+                dataProfile: data
+            })
+        }
 
     }
 
@@ -79,22 +81,32 @@ class ProfileDoctor extends Component {
         let { bookingScheduleData } = this.props;
         let language = this.props.lang;
         // console.log("check is sho description", this.props.isShowDescription)
-        let nameVi = '', nameEn = '', priceVi = '', priceEn = '';
+        let nameVi = '', nameEn = '', locationVi = '', locationEn = '';
         if (dataProfile && dataProfile.positionData) {
             nameVi = `${dataProfile.positionData.valueVi} ${dataProfile.lastName} ${dataProfile.firstName}`
             nameEn = `${dataProfile.positionData.valueEn} ${dataProfile.firstName} ${dataProfile.lastName}`
-            priceVi = `${dataProfile.Doctor_Info.priceData.valueVi}`
-            priceEn = `${dataProfile.Doctor_Info.priceData.valueEn}`
+            locationVi = `${dataProfile.Doctor_Info.provinceData.valueVi}`
+            locationEn = `${dataProfile.Doctor_Info.provinceData.valueEn}`
+            // priceVi = `${dataProfile.Doctor_Info.priceData.valueVi}`
+            // priceEn = `${dataProfile.Doctor_Info.priceData.valueEn}`
         }
+        // console.log("check location", locationEn)
+        // console.log("check profile", dataProfile)
+
         return (
             <div className='doctor-profile-container'>
                 <div className='doctor-intro'>
-                    <div className='content-left' style={{ backgroundImage: `url(${dataProfile.image ? dataProfile.image : ''})` }}>
+                    <div className='content-left'
+                        style={{ backgroundImage: `url(${dataProfile.image ? dataProfile.image : ''})` }}>
 
                     </div>
                     <div className='content-right'>
                         <div className='up'>
-                            {language === LANGUAGES.VI ? nameVi : nameEn}
+                            <span className='nameDoctor'>
+                                <Link to={`/detail-doctor/${this.props.doctorId}`}>
+                                    {language === LANGUAGES.VI ? nameVi : nameEn}
+                                </Link>
+                            </span>
                         </div>
                         <div className='down'>
                             {/* isShowDescription={false} */}
@@ -103,25 +115,35 @@ class ProfileDoctor extends Component {
                                     {dataProfile.Detail_Section.description}
                                 </span>
                             }
+                            {this.props.isShowLocation === true &&
+                                <div className='locationDoctor'>
+                                    <i className="fas fa-map-marker-alt"></i>
+                                    <span className=''> {language === LANGUAGES.VI ? locationVi : locationEn} </span>
+                                </div>
+                            }
                             <div className='datetime'>
                                 {this.renderBookingScheduleData(bookingScheduleData)}
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className='consultation-fee'>
+                {this.props.isShowPrice === true &&
 
-                    <span className='text-price-show'><FormattedMessage id="client.doctor-extra-info.price" />
-                        <span className='price'>
-                            {language === LANGUAGES.VI ?
-                                <NumberFormat value={priceVi} displayType={'text'} thousandSeparator={true} suffix={'đ'} />
-                                :
-                                <NumberFormat value={priceEn} displayType={'text'} thousandSeparator={true} suffix={'$'} />
-                            }
+                    <div className='consultation-fee'>
+
+                        <span className='text-price-show'><FormattedMessage id="client.doctor-extra-info.price" />
+                            <span className='price'>
+                                {language === LANGUAGES.VI &&
+                                    <NumberFormat value={dataProfile.Doctor_Info.priceData.valueVi} displayType={'text'} thousandSeparator={true} suffix={'đ'} />
+                                }
+                                {language === LANGUAGES.EN &&
+                                    <NumberFormat value={dataProfile.Doctor_Info.priceData.valueEn} displayType={'text'} thousandSeparator={true} suffix={'$'} />
+                                }
+                            </span>
+
                         </span>
-
-                    </span>
-                </div>
+                    </div>
+                }
             </div>
         );
     }

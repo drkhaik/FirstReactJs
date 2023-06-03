@@ -161,7 +161,7 @@ class BookingModal extends Component {
             date: dateBooking,
             doctorName: doctorName,
         })
-        console.log("check state", this.state)
+        // console.log("check state", this.state)
         if (res && res.errCode === 0) {
             toast.success("Making an appointment successfully!");
             this.toggle();
@@ -199,6 +199,7 @@ class BookingModal extends Component {
                                 doctorId={doctorId}
                                 // isShowDescription={false}
                                 bookingScheduleData={this.props.bookingScheduleData}
+                                isShowPrice={false}
                             />
                         </div>
 

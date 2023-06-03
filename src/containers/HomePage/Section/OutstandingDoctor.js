@@ -42,7 +42,6 @@ class OutstandingDoctor extends Component {
         let arrDoctorRender = this.state.arrDoctor;
         let language = this.props.lang;
         // arrDoctorRender = arrDoctorRender.concat(arrDoctorRender).concat(arrDoctorRender)
-        console.log('check arr doctor render to view', arrDoctorRender)
         return (
             <div className='main-section section-outstanding-doctor'>
                 <div className='section-container'>

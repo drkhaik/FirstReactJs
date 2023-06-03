@@ -24,16 +24,25 @@
                 font-size: 18px;
                 font-weight: 600;
                 color: #337ab7;
+                .nameDoctor a{
+                    text-decoration: none;
+                    color: #46c3d0;
+                }
             }
     
             .down {
                 padding-top: 5px;
-                font-size: 13px;
-
+                font-size: 14px;
+                padding-right: 15px;
+                
                 .datetime{
                     margin-top: 7px;
                     font-weight: bold;
-                } 
+                }
+                .locationDoctor {
+                    color: #555;
+                    margin-top: 5px;
+                }
             }
         }
     }

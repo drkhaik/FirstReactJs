@@ -27,11 +27,19 @@ class DoctorSchedule extends Component {
     async componentDidMount() {
         let language = this.props.lang;
         let arrDay = this.getArrDay(language);
-        // if(arrDay && arrDay.length > 0){
-        //     let res = await getScheduleInfoByDateService(this.props.doctorIdFromParent, arrDay);
-        // }
+
+        let allAvailableSchedule = [];
+        if (this.props.doctorIdFromParent) {
+            let res = await getScheduleInfoByDateService(this.props.doctorIdFromParent, arrDay[0].value);
+            // console.log("check res get schedule", res)
+            if (res && res.errCode === 0) {
+                allAvailableSchedule = res.data ? res.data : [];
+
+            }
+        }
         this.setState({
-            allAvailableDays: arrDay
+            allAvailableDays: arrDay,
+            allAvailableSchedule: allAvailableSchedule
         })
     }
 

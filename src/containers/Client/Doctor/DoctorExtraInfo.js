@@ -16,7 +16,13 @@ class DoctorExtraInfo extends Component {
     }
 
     async componentDidMount() {
-
+        let res = await getExtraInfoDoctorByIdService(this.props.doctorIdFromParent);
+        // console.log("check res get extra info", res)
+        if (res && res.errCode === 0) {
+            this.setState({
+                allExtraInfo: res.data ? res.data : []
+            })
+        }
     }
 
     async componentDidUpdate(prevProps, prevState, snapshot) {
@@ -68,7 +74,8 @@ class DoctorExtraInfo extends Component {
                                 </span>
                             </span>
 
-                            <span className='show-detail' onClick={() => this.showHideExtraInfo(true)}> <FormattedMessage id="client.doctor-extra-info.show-detail" />
+                            <span className='show-detail' onClick={() => this.showHideExtraInfo(true)}>
+                                <FormattedMessage id="client.doctor-extra-info.show-detail" />
                             </span>
                         </div>
                         :
@@ -93,7 +100,11 @@ class DoctorExtraInfo extends Component {
                                     <span> {allExtraInfo && allExtraInfo.paymentData && language === LANGUAGES.EN ? allExtraInfo.paymentData.valueEn : ""}</span>
                                 </div>
                             </div>
-                            <div className='mt-3'><span className='hide-detail' onClick={() => this.showHideExtraInfo(false)}> <FormattedMessage id="client.doctor-extra-info.hide-detail" /></span></div>
+                            <div className='mt-3'>
+                                <span className='hide-detail' onClick={() => this.showHideExtraInfo(false)}>
+                                    <FormattedMessage id="client.doctor-extra-info.hide-detail" />
+                                </span>
+                            </div>
                         </div>
                     }
 

@@ -44,7 +44,8 @@
     },
     "home-page": {
         "outstanding-doctor": "Outstanding Doctor of the week",
-        "more-info": "More Info"
+        "more-info": "More Info",
+        "specialty-popular": "General Specialties"
     },
     "manage-schedule": {
         "title": "Manage Doctor's appointment schedule",
@@ -95,7 +96,9 @@
             "province": "Province/City",
             "name-clinic": "Clinic name",
             "address-clinic": "Clinic address",
-            "note": "Notes"
+            "note": "Notes",
+            "specialtyId": "Choose specialty",
+            "clinicId": "Choose clinic"
         },
         "manage-user": {
             "add": "Add new user",
@@ -111,6 +114,12 @@
             "image": "Avatar",
             "save": "Save",
             "edit": "Save changes"
+        },
+        "manage-specialty": {
+            "manage-specialty": "Manage specialties",
+            "name-specialty": "Specialty name",
+            "upload-image": "Upload",
+            "desc-specialty": "Description of Specialty"
         }
     }
 }

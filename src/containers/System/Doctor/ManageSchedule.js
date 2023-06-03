@@ -11,7 +11,7 @@ import { toast } from "react-toastify";
 import _ from 'lodash';
 import { saveScheduleInfoService } from '../../../services/userService';
 
-class SystemDoctor extends Component {
+class ManageSchedule extends Component {
 
     constructor(props) {
         super(props);
@@ -235,4 +235,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SystemDoctor);
+export default connect(mapStateToProps, mapDispatchToProps)(ManageSchedule);

@@ -70,6 +70,22 @@ const verifyAnAppointmentService = (data) => {
     return axios.post(`/api/verify-an-appointment`, data);
 }
 
+const createNewSpecialtyService = (data) => {
+    return axios.post(`/api/create-new-specialty`, data);
+}
+
+const getAllSpecialtyService = () => {
+    return axios.get(`/api/get-all-specialty`);
+}
+
+const getDetailSpecialtyByIdService = (data) => {
+    return axios.get(`/api/get-detail-specialty-by-id?id=${data.id}&location=${data.location}`);
+}
+
+const deleteSpecialtyByIdService = (id) => {
+    return axios.get(`/api/delete-specialty-by-id?id=${id}`);
+}
+
 // export khac nodejs
 export {
     handleLoginAPI,
@@ -89,4 +105,8 @@ export {
     getProfileDoctorByIdService,
     makeAnAppointmentService,
     verifyAnAppointmentService,
+    createNewSpecialtyService,
+    getAllSpecialtyService,
+    getDetailSpecialtyByIdService,
+    deleteSpecialtyByIdService,
 }
