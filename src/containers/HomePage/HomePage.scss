@@ -146,22 +146,38 @@
                     padding: 10px 0;
                 }
             }
-
+            &.clinic-child {
+                cursor: pointer;
+                &:hover{
+                    color: #45c3d2;
+                }
+                .specialty-name {
+                    padding: 10px 0;
+                }
+            }
             .img {
                 width: 278px;
                 height: 150px;
                 background-position: center center;
                 background-repeat: no-repeat;
                 background-size: cover;
-                background-color: #eee;
 
                 &.section-specialty {
-                    // background-image: url('../../assets/specialty/tao-hinh-ham-mat.jpg');
+                    // background-image: url('../../assets/health-facility/083122lo-go-viet-duc.jpeg');
+                    object-fit: contain !important;
+                    background-size: contain;
+                    height: 175px;   
+                    // border: 1px solid #edeeed;        
                 }
 
-                &.section-health-facility {
-                    background-image: url('../../assets/health-facility/083122lo-go-viet-duc.jpeg');
-                    border: 1px solid red;
+                &.section-prominent-clinic {
+                    // background-image: url('../../assets/health-facility/083122lo-go-viet-duc.jpeg');
+                    width: 100%;
+                    width: 265px !important;
+                    object-fit: contain !important;
+                    padding: 10px;
+                    height: 150px;   
+                    border: 1px solid #edeeed;
                 }
 
                 &.section-outstanding-doctor {
@@ -200,7 +216,7 @@
 
     .section-container {
 
-        margin: 0 50px; // responsive
+        margin: 0 90px; // responsive
         display: flex;
         flex-direction: column;
 

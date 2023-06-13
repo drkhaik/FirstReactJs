@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import HomeHeader from './HomeHeader';
 import Specialty from './Section/Specialty';
-import HealthFacilities from './Section/HealthFacilities';
+import ProminentClinic from './Section/ProminentClinic';
 import OutstandingDoctor from './Section/OutstandingDoctor';
 import Handbook from './Section/Handbook';
 import About from './Section/About';
@@ -36,7 +36,7 @@ class HomePage extends Component {
             <div>
                 <HomeHeader isShowBanner={true} />
                 <Specialty settings={settings} />
-                <HealthFacilities settings={settings} />
+                <ProminentClinic settings={settings} />
                 <OutstandingDoctor settings={settings} />
                 <Handbook settings={settingsHB} />
                 <About />

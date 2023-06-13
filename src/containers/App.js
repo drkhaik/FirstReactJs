@@ -18,6 +18,8 @@ import CustomScrollbars from '../components/CustomScrollbars'
 import DetailDoctor from './Client/Doctor/DetailDoctor';
 import VerifyEmail from './Client/VerifyEmail';
 import DetailSpecialty from './Client/Specialty/DetailSpecialty';
+import DetailClinic from './Client/Clinic/DetailClinic';
+import LoadingOverLay from 'react-loading-overlay';
 
 class App extends Component {
 
@@ -46,27 +48,28 @@ class App extends Component {
                     <div className="main-container">
                         {/* <ConfirmModal /> */}
                         {/* {this.props.isLoggedIn && <Header />} */}
-                        <div className="content-container">
-                            <CustomScrollbars style={{ height: '100vh', width: '100%' }} >
-                                <Switch>
-                                    <Route path={path.HOME} exact component={(Home)} />
-                                    <Route path={path.HOMEPAGE} component={HomePage} />
-                                    <Route path={path.LOGIN} component={userIsNotAuthenticated(Login)} />
-                                    <Route path={path.SYSTEM} component={userIsAuthenticated(System)} />
-                                    <Route path={path.DOCTOR} component={userIsAuthenticated(SystemDoctor)} />
-                                    {/* import DetailDoctor component */}
-                                    <Route path={path.DETAIL_DOCTOR} component={DetailDoctor} />
-                                    <Route path={path.DETAIL_SPECIALTY} component={DetailSpecialty} />
-                                    <Route path={path.VERIFY_EMAIL_BOOKING} component={VerifyEmail} />
-                                </Switch>
-                            </CustomScrollbars>
-                        </div>
-                        {/* <ToastContainer
-                            className="toast-container" toastClassName="toast-item" bodyClassName="toast-item-body"
-                            autoClose={false} hideProgressBar={true} pauseOnHover={false}
-                            pauseOnFocusLoss={true} closeOnClick={false} draggable={false}
-                            closeButton={<CustomToastCloseButton />}
-                        /> */}
+                        <LoadingOverLay
+                            active={this.props.isLoading}
+                            spinner
+                            text="Loading..."
+                        >
+                            <div className="content-container">
+                                <CustomScrollbars style={{ height: '100vh', width: '100%' }} >
+                                    <Switch>
+                                        <Route path={path.HOME} exact component={(Home)} />
+                                        <Route path={path.HOMEPAGE} component={HomePage} />
+                                        <Route path={path.LOGIN} component={userIsNotAuthenticated(Login)} />
+                                        <Route path={path.SYSTEM} component={userIsAuthenticated(System)} />
+                                        <Route path={path.DOCTOR} component={userIsAuthenticated(SystemDoctor)} />
+                                        {/* import DetailDoctor component */}
+                                        <Route path={path.DETAIL_DOCTOR} component={DetailDoctor} />
+                                        <Route path={path.DETAIL_SPECIALTY} component={DetailSpecialty} />
+                                        <Route path={path.DETAIL_CLINIC} component={DetailClinic} />
+                                        <Route path={path.VERIFY_EMAIL_BOOKING} component={VerifyEmail} />
+                                    </Switch>
+                                </CustomScrollbars>
+                            </div>
+                        </LoadingOverLay>
                         <ToastContainer
                             position="bottom-right"
                             autoClose={5000}
@@ -89,12 +92,14 @@ class App extends Component {
 const mapStateToProps = state => {
     return {
         started: state.app.started,
-        isLoggedIn: state.user.isLoggedIn
+        isLoggedIn: state.user.isLoggedIn,
+        isLoading: state.app.isLoading,
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
+        // isLoadingAppRedux: (isLoading) => dispatch(isLoadingApp(isLoading))
     };
 };
 

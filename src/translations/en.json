@@ -39,13 +39,15 @@
             "manage-handbook": "Manage Handbook"
         },
         "doctor": {
-            "manage-schedule": "Manage Doctor's schedule"
+            "manage-schedule": "Manage Doctor's schedule",
+            "manage-patient": "Manage Patient"
         }
     },
     "home-page": {
         "outstanding-doctor": "Outstanding Doctor of the week",
         "more-info": "More Info",
-        "specialty-popular": "General Specialties"
+        "specialty-popular": "General Specialties",
+        "prominent-clinic": "Prominent Clinic"
     },
     "manage-schedule": {
         "title": "Manage Doctor's appointment schedule",
@@ -82,6 +84,15 @@
         "verify-email": {
             "verify-success": "Appointment confirmed successfully!",
             "verify-fail": "Appointment does not exist or has already been confirmed!"
+        },
+        "detail-clinic": {
+            "brief-introduce": "BookingCare Plus is a leading comprehensive healthcare platform in Vietnam that connects users with over 200 reputable hospitals and clinics, more than 1,500 excellent specialist doctors, and thousands of high-quality medical services and products.",
+            "note-title-1": "From now on, patients can schedule appointments at the requested medical examination area ",
+            "note-title-2": "through the BookingCare Minus appointment booking system",
+            "note-content-1": "Choose experienced professors, doctors and specialists",
+            "note-content-2": "Support online appointment booking before going to the hospital (free booking)",
+            "note-content-3": "Reduces waiting time for examination procedures and prioritizes patients for examination",
+            "note-content-4": "After scheduling an appointment, patients will receive detailed guidance"
         }
     },
     "admin": {
@@ -120,6 +131,14 @@
             "name-specialty": "Specialty name",
             "upload-image": "Upload",
             "desc-specialty": "Description of Specialty"
+        },
+        "manage-clinic": {
+            "manage-clinic": "Manage clinic/ hospital",
+            "name-clinic": "Clinic/Hospital name",
+            "address": "Address",
+            "upload-image": "Upload",
+            "desc-clinic": "Description of Clinic/ Hospital",
+            "strength-equipment-clinic": "Strengths - Equipments"
         }
     }
 }

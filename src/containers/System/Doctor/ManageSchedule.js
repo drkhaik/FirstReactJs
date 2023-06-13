@@ -16,10 +16,10 @@ class ManageSchedule extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            listAllDoctors: '',
+            listAllDoctors: [],
             selectedDoctor: '',
             selectedDate: new Date(),
-            listAllScheduleTime: '',
+            listAllScheduleTime: [],
         }
     }
 
@@ -27,6 +27,15 @@ class ManageSchedule extends Component {
         // load 
         this.props.loadAllDoctor();
         this.props.loadAllScheduleTime();
+        console.log("check user info", this.props.userInfo)
+        let { userInfo } = this.props;
+        let { listAllDoctors } = this.state;
+        let selectedDoctor = listAllDoctors.find(item => {
+            return item && +item.id === +userInfo.id;
+        })
+        this.setState({
+            selectedDoctor: selectedDoctor ? selectedDoctor : '',
+        })
     }
 
     buildDataInputSelect = (inputData) => {
@@ -38,7 +47,7 @@ class ManageSchedule extends Component {
                 let labelVi = `${item.lastName} ${item.firstName}`;
                 let labelEn = `${item.firstName} ${item.lastName}`;
                 object.label = language === LANGUAGES.VI ? labelVi : labelEn;
-                object.value = item.id;
+                object.id = item.id;
                 result.push(object);
             })
         }
@@ -55,6 +64,11 @@ class ManageSchedule extends Component {
 
         if (prevProps.allScheduleTimeRedux !== this.props.allScheduleTimeRedux) {
             let data = this.props.allScheduleTimeRedux;
+            let { userInfo } = this.props;
+            let { listAllDoctors } = this.state;
+            let selectedDoctor = listAllDoctors.find(item => {
+                return item && +item.id === +userInfo.id;
+            })
             if (data && data.length > 0) {
                 // data.map(item => {
                 //     item.isSelected = false;
@@ -62,19 +76,11 @@ class ManageSchedule extends Component {
                 // })
                 data = data.map(item => ({ ...item, isSelected: false }))
             }
-            // console.log("check data isSelected: ", data)
             this.setState({
-                listAllScheduleTime: data
+                listAllScheduleTime: data,
+                selectedDoctor: selectedDoctor ? selectedDoctor : '',
             })
         }
-
-
-        // if (prevProps.lang !== this.props.lang) {
-        //     this.setState({
-        //         // call buildDataInputSelect function to set options for Doctor dropdown 
-        //         listAllDoctors: this.buildDataInputSelect(this.props.allDoctorRedux)
-        //     })
-        // }
     }
 
     handleChangeSelect = async (selectedDoctor) => {
@@ -108,11 +114,23 @@ class ManageSchedule extends Component {
     }
 
     handleSaveScheduleInfo = async () => {
-        let { listAllScheduleTime, selectedDoctor, selectedDate } = this.state;
+        let { listAllScheduleTime, selectedDoctor, selectedDate, listAllDoctors } = this.state;
+        let { userInfo } = this.props;
+        // if (!selectedDoctor && _.isEmpty(selectedDoctor)) {
+        //     if (userInfo && userInfo.roleId === 'R1') {
+        //         toast.error("Invalid Doctor!");
+        //         return;
+        //     } else {
+        //         this.setState({
+        //             selectedDoctor: userInfo
+        //         })
+        //     }
+        // }
         if (!selectedDoctor && _.isEmpty(selectedDoctor)) {
             toast.error("Invalid Doctor!");
             return;
         }
+
         if (!selectedDate) {
             toast.error("Invalid date!");
             return;
@@ -129,7 +147,7 @@ class ManageSchedule extends Component {
             if (selectedScheduleTime && selectedScheduleTime.length > 0) {
                 selectedScheduleTime.map(schedule => {
                     let object = {};
-                    object.doctorId = selectedDoctor.value;
+                    object.doctorId = selectedDoctor.id ? selectedDoctor.id : userInfo.id;
                     object.date = formattedDate;
                     object.timeType = schedule.keyMap;
                     result.push(object);
@@ -139,12 +157,12 @@ class ManageSchedule extends Component {
                 return;
             }
         }
-        // console.log('drkhaik check result', result)
+        console.log('drkhaik check result', result)
 
         let res = await saveScheduleInfoService({
-            // send data to compare to Back end Node JS
+            // send data to compare in Back end Node JS
             arrSchedule: result,
-            doctorId: selectedDoctor.value,
+            doctorId: selectedDoctor.id ? selectedDoctor.id : userInfo.id,
             date: formattedDate,
         })
 
@@ -159,9 +177,10 @@ class ManageSchedule extends Component {
     render() {
         // console.log("hoi dan it check state ", this.state)
         let { userInfo } = this.props;
-        // console.log("check props ", this.props)
+        let example = this.props.allDoctorRedux;
         let { listAllScheduleTime } = this.state;
         let language = this.props.lang;
+        console.log("check props ", this.props)
         let yesterday = new Date(new Date().setDate(new Date().getDate() - 1));
         return (
 
@@ -171,7 +190,9 @@ class ManageSchedule extends Component {
                 </div>
                 <div className='container'>
                     <div className='row'>
+                        {/* {userInfo && userInfo.roleId === 'R1' && */}
                         <div className='col-6 form-group'>
+
                             <label> <FormattedMessage id="manage-schedule.choose-doctor" /></label>
                             {/* {userInfo && !_.isEmpty(userInfo) && userInfo.roleId === USER_ROLE.ADMIN} */}
                             <Select
@@ -180,6 +201,7 @@ class ManageSchedule extends Component {
                                 options={this.state.listAllDoctors}
                             />
                         </div>
+                        {/* } */}
                         <div className='col-6 form-group'>
                             <label> <FormattedMessage id="manage-schedule.choose-date" /></label>
                             <DatePicker

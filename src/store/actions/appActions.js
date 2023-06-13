@@ -13,3 +13,8 @@ export const changeLanguageApp = (languageInput) => ({
     type: actionTypes.CHANGE_LANGUAGE, // CHANGE_LANGUAGE
     language: languageInput // vi, en
 })
+
+export const isLoadingApp = (dataInput) => ({
+    type: actionTypes.IS_LOADING, // CHANGE_LANGUAGE
+    isLoading: dataInput // true, false
+})

@@ -10,6 +10,7 @@ import {
     getAllDoctorService,
     saveInfoDoctorService,
     getAllSpecialtyService,
+    getAllClinicService,
 } from '../../services/userService';
 
 export const fetchGenderStart = () => {
@@ -315,16 +316,19 @@ export const fetchDoctorRequiredInfo = () => {
             let resPayment = await getAllCodeService('PAYMENT');
             let resProvince = await getAllCodeService('PROVINCE');
             let resSpecialty = await getAllSpecialtyService();
+            let resClinic = await getAllClinicService();
             if (resPrice && resPrice.errCode === 0
                 && resPayment && resPayment.errCode === 0
                 && resProvince && resProvince.errCode === 0
                 && resSpecialty && resSpecialty.errCode === 0
+                && resClinic && resClinic.errCode === 0
             ) {
                 let data = {
                     resPrice: resPrice.data,
                     resPayment: resPayment.data,
                     resProvince: resProvince.data,
                     resSpecialty: resSpecialty.data,
+                    resClinic: resClinic.data,
                 }
                 // console.log('hoi dan it check get state: ', getState)
                 dispatch(fetchDoctorRequiredInfoSuccess(data))
@@ -345,3 +349,29 @@ export const fetchDoctorRequiredInfoSuccess = (allRequiredData) => ({
 export const fetchDoctorRequiredInfoFailed = () => ({
     type: actionTypes.FETCH_REQUIRED_DOCTOR_INFO_FAILED
 })
+
+
+
+export const fetchAllClinic = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await getAllClinicService();
+            // console.log('check get all doctor', res)
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.FETCH_ALL_CLINIC_SUCCESS,
+                    data: res.data
+                })
+            } else {
+                dispatch({
+                    type: actionTypes.FETCH_ALL_CLINIC_FAILED
+                })
+            }
+        } catch (e) {
+            console.log('FETCH_ALL_CLINIC_FAILED', e)
+            dispatch({
+                type: actionTypes.FETCH_ALL_CLINIC_FAILED
+            })
+        }
+    }
+}

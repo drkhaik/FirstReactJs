@@ -8,7 +8,8 @@ import MdEditor from 'react-markdown-editor-lite'; // npm install --save react-m
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
 import { createNewSpecialtyService, getAllSpecialtyService, deleteSpecialtyByIdService } from '../../../services/userService';
-import { toast } from 'react-toastify'
+import { toast } from 'react-toastify';
+// import { Editor } from '@tinymce/tinymce-react'
 
 const mdParser = new MarkdownIt(/* Markdown-it options */);
 
@@ -93,7 +94,7 @@ class ManageSpecialty extends Component {
     }
 
     handleEditSpecialty = (specialty) => {
-        console.log('hoidanit check handle edit user from parent', specialty)
+        // console.log('hoidanit check handle edit user from parent', specialty)
         // let imageBase64 = '';
         // if (user.image) {
         //     // decode... convert base64 ra image khi click vao edit
@@ -200,7 +201,8 @@ class ManageSpecialty extends Component {
                     </div>
                     <div className='col-6 form-group'>
                         <div className='preview-img-container'>
-                            <input type="file" id='previewImg' hidden
+                            <input type="file" id='previewImg' hidden onClick={() => console.log("File input!")}
+                                onMouseDown={() => console.log("File input mousedown!")}
                                 onChange={(event) => { this.handleOnChangeImage(event) }}
                             />
                             <label className='label-upload' htmlFor='previewImg'><FormattedMessage id="admin.manage-specialty.upload-image" /> <i className="fas fa-upload"></i></label>
@@ -221,7 +223,7 @@ class ManageSpecialty extends Component {
                         />
                     </div>
                     <div className='col-12'>
-                        <button type="submit" class={this.state.action === CRUD_ACTIONS.EDIT ? "btn btn-warning mb-3 mt-3" : "btn btn-primary mb-3 mt-3"}
+                        <button type="submit" className={this.state.action === CRUD_ACTIONS.EDIT ? "btn btn-warning mb-3 mt-3" : "btn btn-primary mb-3 mt-3"}
                             onClick={() => { this.handleSaveNewSpecialty() }}>
                             {this.state.action === CRUD_ACTIONS.EDIT ?
                                 <FormattedMessage id="admin.manage-user.edit" />

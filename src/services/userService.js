@@ -62,13 +62,14 @@ const getExtraInfoDoctorByIdService = (doctorId) => {
 const getProfileDoctorByIdService = (doctorId) => {
     return axios.get(`/api/get-profile-doctor-by-id?doctorId=${doctorId}`)
 }
-const makeAnAppointmentService = (data) => {
+const bookAnAppointmentService = (data) => {
     return axios.post(`/api/patient-book-an-appointment`, data);
 }
 
 const verifyAnAppointmentService = (data) => {
     return axios.post(`/api/verify-an-appointment`, data);
 }
+
 
 const createNewSpecialtyService = (data) => {
     return axios.post(`/api/create-new-specialty`, data);
@@ -85,6 +86,36 @@ const getDetailSpecialtyByIdService = (data) => {
 const deleteSpecialtyByIdService = (id) => {
     return axios.get(`/api/delete-specialty-by-id?id=${id}`);
 }
+
+
+const createNewClinicService = (data) => {
+    return axios.post(`/api/create-new-clinic`, data);
+}
+
+const getAllClinicService = () => {
+    return axios.get(`/api/get-all-clinic`);
+}
+
+const getDetailClinicByIdService = (data) => {
+    return axios.get(`/api/get-detail-clinic-by-id?id=${data.id}`);
+}
+
+const deleteClinicByIdService = (id) => {
+    return axios.get(`/api/delete-clinic-by-id?id=${id}`);
+}
+
+const getAddressClinicByDoctorIdService = (doctorId) => {
+    return axios.get(`/api/get-address-clinic-by-doctorId?doctorId=${doctorId}`)
+}
+
+const getListPatientForDoctor = (data) => {
+    return axios.get(`/api/get-list-patient-for-doctor?doctorId=${data.doctorId}&date=${data.date}`)
+}
+
+const saveCompletedStatusService = (data) => {
+    return axios.put(`/api/save-completed-status`, data)
+}
+
 
 // export khac nodejs
 export {
@@ -103,10 +134,18 @@ export {
     getScheduleInfoByDateService,
     getExtraInfoDoctorByIdService,
     getProfileDoctorByIdService,
-    makeAnAppointmentService,
+    bookAnAppointmentService,
     verifyAnAppointmentService,
     createNewSpecialtyService,
     getAllSpecialtyService,
     getDetailSpecialtyByIdService,
     deleteSpecialtyByIdService,
+
+    createNewClinicService,
+    getAllClinicService,
+    getDetailClinicByIdService,
+    deleteClinicByIdService,
+    getAddressClinicByDoctorIdService,
+    getListPatientForDoctor,
+    saveCompletedStatusService,
 }

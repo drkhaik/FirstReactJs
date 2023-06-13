@@ -48,7 +48,7 @@ class DoctorExtraInfo extends Component {
     render() {
         let { isShowExtraInfo, allExtraInfo } = this.state;
         let language = this.props.lang;
-        // console.log("check state extra info", this.state)
+        // console.log("check state extra info", this.state.allExtraInfo)
         let priceVi = ''; let priceEn = '';
         if (allExtraInfo && allExtraInfo.priceData) {
             priceVi = `${allExtraInfo.priceData.valueVi}`
@@ -58,8 +58,12 @@ class DoctorExtraInfo extends Component {
             <div className='doctor-extra-info-container'>
                 <div className='content-up'>
                     <div className='text-address'><FormattedMessage id="client.doctor-extra-info.address" /></div>
-                    <div className='name-clinic'> {allExtraInfo && allExtraInfo.nameClinic ? allExtraInfo.nameClinic : ''} </div>
-                    <div className='detail-address'> {allExtraInfo && allExtraInfo.addressClinic ? allExtraInfo.addressClinic : ''}</div>
+                    <div className='name-clinic'>
+                        {allExtraInfo && allExtraInfo.clinicData ? allExtraInfo.clinicData.name : ''}
+                    </div>
+                    <div className='detail-address'>
+                        {allExtraInfo && allExtraInfo.clinicData ? allExtraInfo.clinicData.address : ''}
+                    </div>
                 </div>
                 <div className='content-down'>
                     {isShowExtraInfo === false ?

@@ -3,65 +3,61 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 import Slider from "react-slick";
-import { getAllSpecialtyService } from '../../../services/userService';
+import { getAllClinicService } from '../../../services/userService';
 import { withRouter } from 'react-router';
 
-
-class Specialty extends Component {
+class ProminentClinic extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            arrSpecialty: []
+            arrClinic: []
         }
     }
-
     componentDidUpdate(prevProps, prevState, snapshot) {
-        // if (prevProps.outstandingDoctorRedux !== this.props.outstandingDoctorRedux) {
-        //     this.setState({
-        //         arrDoctor: this.props.outstandingDoctorRedux
-        //     })
-        // }
+
     }
 
     async componentDidMount() {
-        let res = await getAllSpecialtyService();
+        let res = await getAllClinicService();
         // console.log("check res", res)
         if (res && res.errCode === 0) {
             this.setState({
-                arrSpecialty: res.data ? res.data : []
+                arrClinic: res.data ? res.data : []
             })
         }
     }
 
-    handleViewDetailSpecialty = (infoSpecialty) => {
-        console.log('view info: ', infoSpecialty)
+    handleViewDetailSpecialty = (infoClinic) => {
+        // console.log('view info: ', infoClinic)
         // redirect
         if (this.props.history) {
-            this.props.history.push(`/detail-specialty/${infoSpecialty.id}`);
+            this.props.history.push(`/detail-clinic/${infoClinic.id}`);
         }
     }
-
+    // ProminentClinic
 
     render() {
-        let settings = this.props.settings;
-        // console.log('specialty check: ', settings);
-        let { arrSpecialty } = this.state;
+        let { arrClinic } = this.state;
         return (
-            <div className='main-section section-specialty'>
+            <div className='main-section section-health-facility'>
                 <div className='section-container'>
                     <div className='section-header'>
-                        <span className='title-section'><FormattedMessage id="home-page.specialty-popular" /> </span>
+                        <span className='title-section'><FormattedMessage id="home-page.prominent-clinic" /> </span>
                         <button className='btn-section'><FormattedMessage id="home-page.more-info" /></button>
                     </div>
                     <div className='section-body'>
                         <Slider {...this.props.settings}>
-                            {arrSpecialty && arrSpecialty.length > 0 &&
-                                arrSpecialty.map((item, index) => {
+                            {/* <div className='section-customize'>
+                                <div className='img section-health-facility'> </div>
+                                <div>Bệnh viện Hữu nghị Việt Đức 1</div>
+                            </div> */}
+                            {arrClinic && arrClinic.length > 0 &&
+                                arrClinic.map((item, index) => {
                                     return (
-                                        <div className='section-customize specialty-child' key={index} onClick={() => this.handleViewDetailSpecialty(item)}>
-                                            {/* <div className='img section-specialty'
+                                        <div className='section-customize clinic-child' key={index} onClick={() => this.handleViewDetailSpecialty(item)}>
+                                            {/* <div className='img section-prominent-clinic'
                                                 style={{ backgroundImage: `url(${item.image})` }}> </div> */}
-                                            <img className='img section-specialty' src={`${item.image}`} />
+                                            <img className='img section-prominent-clinic' src={`${item.image}`} />
                                             <div className='specialty-name'>{item.name}</div>
                                         </div>
                                     )
@@ -89,4 +85,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Specialty));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProminentClinic));

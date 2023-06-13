@@ -10,6 +10,7 @@ const initContentOfConfirmModal = {
 const initialState = {
     started: true,
     language: 'vi',
+    isLoading: false,
     systemMenuPath: '/system/user-manage',
     contentOfConfirmModal: {
         ...initContentOfConfirmModal
@@ -32,10 +33,15 @@ const appReducer = (state = initialState, action) => {
                 }
             }
         case actionTypes.CHANGE_LANGUAGE:
-            console.log('hoidanit check redux', action)
+            // console.log('hoidanit check redux', action)
             return {
                 ...state,
                 language: action.language,
+            }
+        case actionTypes.IS_LOADING:
+            return {
+                ...state,
+                isLoading: action.isLoading,
             }
         default:
             return state;

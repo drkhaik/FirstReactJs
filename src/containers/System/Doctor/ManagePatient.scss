@@ -1,0 +1,73 @@
+.manage-patient-container {
+    .manage-patient-body{
+        .manage-patient-table{
+            table {
+                font-family: Arial, Helvetica, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+                margin-bottom: 40px;
+            
+                .btn-edit {
+                    margin-right: 5px;
+                    border: none;
+                    outline: none;
+                    background: transparent;
+                    color: orange;
+            
+                    &:hover {
+                        background: transparent !important;
+                        color: black;
+                    }
+            
+                    i {
+                        font-size: 15px;
+                    }
+                }
+            
+                .btn-delete {
+                    border: none;
+                    outline: none;
+                    background: transparent;
+                    color: rgb(209, 2, 2);
+            
+                    &:hover {
+                        background: transparent !important;
+                        color: black;
+                    }
+            
+                    i {
+                        font-size: 15px;
+                    }
+                }
+                td,th {
+                border: 1px solid #ddd;
+                padding: 8px;
+                    .badge {
+                        font-size: 14px;
+                    }
+                    .btn-done {
+                        background-color: #349432;
+                        color: #eee;
+                        &:hover {
+                            background-color: #0ec70a;
+                        }
+                    }
+                }
+                tr:hover {
+                    background-color: #ddd;
+                }
+                th {
+                    padding-top: 12px;
+                    padding-bottom: 12px;
+                    text-align: left;
+                    background-color: #04AA6D;
+                    color: white;
+                }
+                tr:nth-child(even) {
+                    background-color: #f2f2f2;
+                }
+            
+            }
+        }
+    }
+}

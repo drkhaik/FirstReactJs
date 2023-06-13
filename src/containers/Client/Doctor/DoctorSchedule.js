@@ -59,11 +59,11 @@ class DoctorSchedule extends Component {
                 }
             } else {
                 if (i === 0) {
-                    let ddMM = moment(new Date()).format('DD/MM');
+                    let ddMM = moment(new Date()).format('MM/DD');
                     let today = `Today - ${ddMM}`;
                     object.label = today;
                 } else {
-                    object.label = moment(new Date()).add(i, 'days').locale('en').format('ddd - DD/MM');
+                    object.label = moment(new Date()).add(i, 'days').locale('en').format('ddd - MM/DD');
                 }
             }
 
@@ -118,18 +118,19 @@ class DoctorSchedule extends Component {
         })
     }
 
-    handleClickScheduleTime = (time) => {
+    handleClickScheduleTime = (timeAndDoctorInfo) => {
         this.setState({
             isOpenBookingModal: true,
-            bookingScheduleData: time
+            bookingScheduleData: timeAndDoctorInfo
         })
-        console.log("check time", time)
+        // console.log("check time", timeAndDoctorInfo) 
     }
 
     render() {
         let { allAvailableDays, allAvailableSchedule } = this.state;
         let language = this.props.lang;
-        // console.log("check state:", this.state.bookingScheduleData)
+        // console.log("check state:", this.state)
+        // console.log("check props id:", this.props.doctorIdFromParent)
         return (
             <>
                 <div className='doctor-schedule-container'>
@@ -177,7 +178,7 @@ class DoctorSchedule extends Component {
                     isOpenModal={this.state.isOpenBookingModal}
                     toggleFromParent={this.toggleBookingModal}
                     bookingScheduleData={this.state.bookingScheduleData}
-                // toggleFromParent={this.toggleUserModal}
+                    doctorId={this.state.bookingScheduleData.doctorId}
                 />
             </>
         );

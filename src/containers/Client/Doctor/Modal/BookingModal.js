@@ -10,7 +10,7 @@ import _ from 'lodash';
 import DatePicker from "../../../../components/Input/DatePicker";
 import * as actions from '../../../../store/actions';
 import Select from 'react-select';
-import { makeAnAppointmentService } from '../../../../services/userService';
+import { bookAnAppointmentService, getAddressClinicByDoctorIdService } from '../../../../services/userService';
 import { toast } from 'react-toastify';
 import moment from 'moment';
 
@@ -35,6 +35,16 @@ class BookingModal extends Component {
 
     async componentDidMount() {
         this.props.getGenderStart();
+        if (this.props.bookingScheduleData && !_.isEmpty(this.props.bookingScheduleData)) {
+            let doctorId = this.props.bookingScheduleData.doctorId;
+            let timeType = this.props.bookingScheduleData.timeType;
+            let date = this.props.bookingScheduleData.date;
+            this.setState({
+                doctorId: doctorId,
+                timeType: timeType,
+                date: date
+            })
+        }
     }
 
     buildDataInputSelect = (inputData) => {
@@ -97,7 +107,7 @@ class BookingModal extends Component {
             birthday: date[0]
         })
         let exp = new Date(this.state.birthday).setHours(0, 0, 0, 0);
-        console.log("check example", exp)
+        // console.log("check example", exp)
     }
 
     handleChangeSelect = async (selectedOption) => {
@@ -142,31 +152,55 @@ class BookingModal extends Component {
 
     }
 
+    buildBirthday = (birthday) => {
+        let language = this.props.lang;
+        if (birthday) {
+            // console.log("check birthday", this.state.birthday)
+            let date = language === LANGUAGES.VI ?
+                // JS mili s ,, unix s
+                moment(birthday).format('DD/MM/YYYY')
+                :
+                moment(birthday).format('MM/DD/YYYY')
+
+            return `${date}`
+
+        }
+        return ''
+
+    }
+
     handleBookingAnAppointment = async () => {
-        // validate input
-        let formattedBirthday = new Date(this.state.birthday).setHours(0, 0, 0, 0);
-        let dateBooking = this.buildBookingScheduleData(this.props.bookingScheduleData);
+        let resClinic = await getAddressClinicByDoctorIdService(this.state.doctorId);
+        let formattedBirthday = this.buildBirthday(this.state.birthday);
+        let dateBookingString = this.buildBookingScheduleData(this.props.bookingScheduleData);
+        let dateBooking = this.props.bookingScheduleData.date;
         let doctorName = this.buildDoctorName(this.props.bookingScheduleData);
-        let res = await makeAnAppointmentService({
+        this.props.isLoadingAppRedux(true)
+        let res = await bookAnAppointmentService({
             fullName: this.state.fullName,
             email: this.state.email,
             phoneNumber: this.state.phoneNumber,
             birthday: formattedBirthday,
             address: this.state.address ? this.state.address : '',
             reason: this.state.reason,
-            selectedGender: this.state.selectedGender ? this.state.selectedGender.value : '',
+            gender: this.state.selectedGender ? this.state.selectedGender.value : '',
             doctorId: this.state.doctorId,
             timeType: this.state.timeType,
             language: this.props.lang,
             date: dateBooking,
+            dateString: dateBookingString,
             doctorName: doctorName,
+            addressClinic: resClinic.data && resClinic.data.clinicData ? resClinic.data.clinicData.address : '',
+            nameClinic: resClinic.data && resClinic.data.clinicData ? resClinic.data.clinicData.name : '',
         })
         // console.log("check state", this.state)
         if (res && res.errCode === 0) {
             toast.success("Making an appointment successfully!");
             this.toggle();
+            this.props.isLoadingAppRedux(false)
         } else {
-            toast.error("Making an appointment failed!");
+            toast.error(`${res.message}`);
+            this.props.isLoadingAppRedux(false)
         }
     }
 
@@ -174,11 +208,13 @@ class BookingModal extends Component {
     // create new booking bookingScheduleData.timeType bookingScheduleData.date bookingScheduleData.doctorId
     render() {
         let { isOpenModal, bookingScheduleData } = this.props;
+        // console.log("check bookingScheduleData", bookingScheduleData)
         let doctorId = bookingScheduleData && !_.isEmpty(bookingScheduleData) ? bookingScheduleData.doctorId : '';
         // console.log('check props gender build data input', this.buildDataInputSelect(this.props.genderRedux))
         // console.log('check props gender', this.props.genderRedux)
         // console.log("check booking modal", bookingScheduleData)
         return (
+
             <Modal isOpen={isOpenModal}
                 // toggle={() => { this.toggle() }}
                 className='booking-modal-container'
@@ -278,7 +314,7 @@ class BookingModal extends Component {
                         </button>
                     </div>
                 </div>
-            </Modal>
+            </Modal >
         );
     }
 }
@@ -293,6 +329,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         getGenderStart: () => dispatch(actions.fetchGenderStart()),
+        isLoadingAppRedux: (isLoading) => dispatch(actions.isLoadingApp(isLoading))
     };
 };
 

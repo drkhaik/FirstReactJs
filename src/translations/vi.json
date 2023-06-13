@@ -39,13 +39,15 @@
             "manage-handbook": "Quản lý cẩm nang"
         },
         "doctor": {
-            "manage-schedule": "Quản lý lịch khám bệnh "
+            "manage-schedule": "Quản lý lịch khám bệnh ",
+            "manage-patient": "Quản lý bệnh nhân"
         }
     },
     "home-page": {
         "outstanding-doctor": "Bác sĩ nổi bật tuần qua ",
         "more-info": "Xem thêm",
-        "specialty-popular": "Chuyên khoa phổ biến"
+        "specialty-popular": "Chuyên khoa phổ biến",
+        "prominent-clinic": "Cơ sở y tế nổi bật"
     },
     "manage-schedule": {
         "title": "Quản lý lịch hẹn khám bệnh của Bác sĩ",
@@ -82,6 +84,15 @@
         "verify-email": {
             "verify-success": "Xác nhận lịch hẹn thành công!",
             "verify-fail": "Lịch hẹn không tồn tại hoặc đã được xác nhận!"
+        },
+        "detail-clinic": {
+            "brief-introduce": "BookingCare Plus là Nền tảng Y tế chăm sóc sức khỏe toàn diện hàng đầu Việt Nam kết nối người dùng với trên 200 bệnh viện - phòng khám uy tín, hơn 1,500 bác sĩ chuyên khoa giỏi và hàng nghìn dịch vụ, sản phẩm y tế chất lượng cao.",
+            "note-title-1": "Từ nay, người bệnh có thể đặt lịch tại Khu khám bệnh theo yêu cầu",
+            "note-title-2": "thông qua hệ thống đặt khám BookingCare Minus.",
+            "note-content-1": "Được lựa chọn các giáo sư, tiến sĩ, bác sĩ chuyên khoa giàu kinh nghiệm",
+            "note-content-2": "Hỗ trợ đặt khám trực tuyến trước khi đi khám (miễn phí đặt lịch)",
+            "note-content-3": "Giảm thời gian chờ đợi khi làm thủ tục khám và ưu tiên khám trước",
+            "note-content-4": "Nhận được hướng dẫn chi tiết sau khi đặt lịch"
         }
     },
     "admin": {
@@ -120,6 +131,14 @@
             "name-specialty": "Tên chuyên khoa",
             "upload-image": "Tải ảnh",
             "desc-specialty": "Thông tin chi tiết chuyên khoa"
+        },
+        "manage-clinic": {
+            "manage-clinic": "Quản lý phòng khám/ bệnh viện",
+            "name-clinic": "Tên phòng khám/bệnh viện",
+            "address": "Địa chỉ",
+            "upload-image": "Tải ảnh",
+            "desc-clinic": "Thông tin chi tiết phòng khám/ bệnh viện",
+            "strength-equipment-clinic": "Thế mạnh - Trang thiết bị"
         }
     }
 }
