@@ -104,10 +104,12 @@ export const createNewUser = (data) => {
                 dispatch(getAllUserStart())
             } else {
                 dispatch(saveUserFailed())
+                toast.error(res.message);
             }
         } catch (e) {
             dispatch(saveUserFailed());
             console.log('saveUserFailed error ', e)
+            // toast.error(res.message);
         }
     }
 }
@@ -132,6 +134,7 @@ export const getAllUserStart = () => {
             } else {
                 toast.error("Get all users error!");
                 dispatch(getAllUserFailed())
+                console.log('fetchAllUserFailed error ', res.message)
             }
         } catch (e) {
             toast.error("Get all users error!");

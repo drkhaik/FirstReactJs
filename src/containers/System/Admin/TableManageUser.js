@@ -119,7 +119,6 @@ const mapDispatchToProps = dispatch => {
     return {
         getAllUserRedux: () => dispatch(actions.getAllUserStart()),
         deleteUserRedux: (userId) => dispatch(actions.deleteUser(userId)),
-        // createNewUser: (data) => dispatch(actions.createNewUser(data)),
         // processLogout: () => dispatch(actions.processLogout()),
     };
 };

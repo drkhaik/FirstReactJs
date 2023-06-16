@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { push } from "connected-react-router";
-
 import * as actions from "../../store/actions";
-
 import './Login.scss';
 import { FormattedMessage } from 'react-intl';
 import { handleLoginAPI } from '../../services/userService';
@@ -52,8 +50,9 @@ class Login extends Component {
             }
             if (data && data.errCode === 0) {
                 //to do
-                this.props.userLoginSuccess(data.user)
-                console.log("successful")
+                this.props.userLoginSuccess(data) //  this.props.userLoginSuccess(data) to save jwtkey in redux
+                console.log("successful", data)
+                localStorage.setItem('token', data.accessToken)
             }
         } catch (error) {
             if (error.response) {

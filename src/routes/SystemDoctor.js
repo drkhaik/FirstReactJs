@@ -4,6 +4,9 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import Header from '../containers/Header/Header';
 import ManageSchedule from '../containers/System/Doctor/ManageSchedule';
 import ManagePatient from '../containers/System/Doctor/ManagePatient';
+import AdminPage from '../containers/System/AdminPage';
+import RoleRoute from './MiddlewareRoute';
+import { USER_ROLE } from '../utils';
 
 class SystemDoctor extends Component {
     render() {
@@ -16,8 +19,9 @@ class SystemDoctor extends Component {
                 <div className="system-container">
                     <div className="system-list">
                         <Switch>
-                            <Route path="/doctor/manage-schedule" component={ManageSchedule} />
-                            <Route path="/doctor/manage-patient" component={ManagePatient} />
+                            <Route path="/system/admin-page" component={AdminPage} />
+                            <RoleRoute path="/doctor/manage-schedule" allowedRoles={[USER_ROLE.DOCTOR, USER_ROLE.ADMIN]} component={ManageSchedule} />
+                            <RoleRoute path="/doctor/manage-patient" allowedRoles={[USER_ROLE.DOCTOR]} component={ManagePatient} />
                         </Switch>
                     </div>
                 </div>

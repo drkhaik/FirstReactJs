@@ -1,17 +1,20 @@
 import axios from "../axios";
+// import { useSelector } from 'react-redux';
+
 
 const handleLoginAPI = (userEmail, userPassword) => {
     return axios.post('/api/login', { email: userEmail, password: userPassword });
 }
 
 const getAllUsers = (inputId) => {
-    // template string
     return axios.get(`/api/getUsers?id=${inputId}`);
+    // axios.get(webApiUrl, { headers: {"Authorization" : `Bearer ${tokenStr}`} } );
 }
 
 const createNewUserService = (data) => {
     console.log('check data from service', data);
-    return axios.post(`/api/createUser`, data)
+    console.log('check data from service', data.token);
+    return axios.post(`/api/createUser`, data, { headers: { 'Content-Type': 'application/json', "Authorization": `Bearer ${data.token}` } })
 
 }
 const editUserService = (data) => {
@@ -70,7 +73,6 @@ const verifyAnAppointmentService = (data) => {
     return axios.post(`/api/verify-an-appointment`, data);
 }
 
-
 const createNewSpecialtyService = (data) => {
     return axios.post(`/api/create-new-specialty`, data);
 }
@@ -115,7 +117,6 @@ const getListPatientForDoctor = (data) => {
 const saveCompletedStatusService = (data) => {
     return axios.put(`/api/save-completed-status`, data)
 }
-
 
 // export khac nodejs
 export {

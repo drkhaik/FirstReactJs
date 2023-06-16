@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { Redirect, Route, Switch } from 'react-router-dom';
-import UserManage from '../containers/System/UserManage';
+import AdminPage from '../containers/System/AdminPage';
 import UserRedux from '../containers/System/Admin/UserRedux';
 import ManageDoctor from '../containers/System/Admin/ManageDoctor';
 import Header from '../containers/Header/Header';
 import ManageSpecialty from '../containers/System/Specialty/ManageSpecialty';
 import ManageClinic from '../containers/System/Clinic/ManageClinic';
+import RoleRoute from './MiddlewareRoute';
+import { USER_ROLE } from '../utils';
+// import { userRoleIsAdmin } from '../hoc/authentication';
 
 class System extends Component {
+
     render() {
         {/* {this.props.isLoggedIn && <Header />} */ }
 
@@ -19,12 +23,12 @@ class System extends Component {
                 <div className="system-container">
                     <div className="system-list">
                         <Switch>
-                            <Route path="/system/user-manage" component={UserManage} />
-                            <Route path="/system/user-redux" component={UserRedux} />
-                            <Route path="/system/manage-doctor" component={ManageDoctor} />
-                            <Route path="/system/manage-specialty" component={ManageSpecialty} />
-                            <Route path="/system/manage-clinic" component={ManageClinic} />
-                            <Route component={() => { return (<Redirect to={systemMenuPath} />) }} />
+                            <RoleRoute path="/system/admin-page" allowedRoles={[USER_ROLE.ADMIN, USER_ROLE.DOCTOR]} component={AdminPage} />
+                            <RoleRoute path="/system/user-redux" allowedRoles={[USER_ROLE.ADMIN]} component={UserRedux} />
+                            <RoleRoute path="/system/manage-doctor" allowedRoles={[USER_ROLE.ADMIN]} component={ManageDoctor} />
+                            <RoleRoute path="/system/manage-specialty" allowedRoles={[USER_ROLE.ADMIN]} component={ManageSpecialty} />
+                            <RoleRoute path="/system/manage-clinic" allowedRoles={[USER_ROLE.ADMIN]} component={ManageClinic} />
+                            <RoleRoute component={() => { return (<Redirect to={systemMenuPath} />) }} />
                         </Switch>
                     </div>
                 </div>

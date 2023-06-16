@@ -11,7 +11,7 @@ const initialState = {
     started: true,
     language: 'vi',
     isLoading: false,
-    systemMenuPath: '/system/user-manage',
+    systemMenuPath: '/system/admin-page',
     contentOfConfirmModal: {
         ...initContentOfConfirmModal
     }

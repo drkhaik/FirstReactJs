@@ -53,6 +53,9 @@ const actionTypes = Object.freeze({
     FETCH_ALL_CLINIC_SUCCESS: 'FETCH_ALL_CLINIC_SUCCESS',
     FETCH_ALL_CLINIC_FAILED: 'FETCH_ALL_CLINIC_FAILED',
 
+
+    UNAUTHORIZED_ACCESS: 'UNAUTHORIZED_ACCESS'
+
 })
 
 export default actionTypes;
