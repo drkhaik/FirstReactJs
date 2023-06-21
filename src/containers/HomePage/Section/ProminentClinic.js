@@ -39,7 +39,7 @@ class ProminentClinic extends Component {
     render() {
         let { arrClinic } = this.state;
         return (
-            <div className='main-section section-health-facility'>
+            <div className='main-section section-clinic'>
                 <div className='section-container'>
                     <div className='section-header'>
                         <span className='title-section'><FormattedMessage id="home-page.prominent-clinic" /> </span>

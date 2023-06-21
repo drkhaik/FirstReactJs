@@ -76,6 +76,7 @@
             "email": "Email (*)",
             "phone-number": "Số điện thoại (*)",
             "address": "Địa chỉ",
+            "birthday": "Ngày sinh(*)",
             "gender": "Giới tính",
             "reason": "Lý do khám (*)",
             "btn-confirm": "Xác nhận đặt khám",
@@ -93,6 +94,11 @@
             "note-content-2": "Hỗ trợ đặt khám trực tuyến trước khi đi khám (miễn phí đặt lịch)",
             "note-content-3": "Giảm thời gian chờ đợi khi làm thủ tục khám và ưu tiên khám trước",
             "note-content-4": "Nhận được hướng dẫn chi tiết sau khi đặt lịch"
+        },
+        "detail-handbook": {
+            "prod-of": "Sản phẩm của:",
+            "author": "Tác giả:",
+            "note": "BookingCare Minus là Nền tảng Y tế chăm sóc sức khỏe toàn diện hàng đầu Việt Nam kết nối người dùng với trên 200 bệnh viện - phòng khám uy tín,hơn 1,500 bác sĩ chuyên khoa giỏi và hàng nghìn dịch vụ, sản phẩm y tế chất lượng cao."
         }
     },
     "admin": {
@@ -139,6 +145,13 @@
             "upload-image": "Tải ảnh",
             "desc-clinic": "Thông tin chi tiết phòng khám/ bệnh viện",
             "strength-equipment-clinic": "Thế mạnh - Trang thiết bị"
+        },
+        "manage-handbook": {
+            "manage-handbook": "Quản lý cẩm nang",
+            "name-handbook": "Tiêu đề",
+            "description": "Giới thiệu ngắn",
+            "upload-image": "Tải ảnh",
+            "content-handbook": "Nội dung"
         }
     }
 }

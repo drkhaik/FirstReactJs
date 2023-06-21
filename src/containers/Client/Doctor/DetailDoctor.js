@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import HomeHeader from '../../HomePage/HomeHeader';
+import HomeFooter from '../../HomePage/HomeFooter';
 import "./DetailDoctor.scss";
 import { getDetailInfoDoctorService } from '../../../services/userService';
 import { LANGUAGES } from '../../../utils';
@@ -51,7 +52,7 @@ class DetailDoctor extends Component {
         return (
             <React.Fragment>
 
-                <HomeHeader isShowBanner={false} />
+                <HomeHeader />
                 <div className='doctor-detail-container'>
 
                     <div className='doctor-intro'>
@@ -88,6 +89,7 @@ class DetailDoctor extends Component {
                     </div>
                     <div className='comment'></div>
                 </div>
+                <HomeFooter />
             </React.Fragment>
         );
     }

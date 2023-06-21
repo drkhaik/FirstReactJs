@@ -41,7 +41,6 @@ class UserRedux extends Component {
         this.props.getPositionStart();
         this.props.getRoleStart();
         // this.props.getAllUserRedux();
-        console.log("count render time", +1)
 
     }
 
@@ -50,7 +49,6 @@ class UserRedux extends Component {
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (prevProps.genderRedux !== this.props.genderRedux) {
             let genderArrRedux = this.props.genderRedux;
-            console.log("count render time", +1)
             this.setState({
                 genderArr: genderArrRedux,
                 // set gtri mac dinh cho gender
@@ -63,7 +61,6 @@ class UserRedux extends Component {
                 positionArr: positionArrRedux,
                 position: positionArrRedux && positionArrRedux.length > 0 ? positionArrRedux[0].keyMap : ''
             })
-            console.log("count render time", +1)
         }
         if (prevProps.roleRedux !== this.props.roleRedux) {
             let roleArrRedux = this.props.roleRedux;
@@ -71,7 +68,6 @@ class UserRedux extends Component {
                 roleArr: roleArrRedux,
                 role: roleArrRedux && roleArrRedux.length > 0 ? roleArrRedux[0].keyMap : ''
             })
-            console.log("count render time", +1)
         }
 
         if (prevProps.listUsers !== this.props.listUsers) {
@@ -93,7 +89,6 @@ class UserRedux extends Component {
                 action: CRUD_ACTIONS.CREATE,
                 previewImgURL: '',
             })
-            console.log("count render time", +1)
         }
     }
 
@@ -109,7 +104,6 @@ class UserRedux extends Component {
                 previewImgURL: objectUrl,
                 image: base64
             })
-            console.log("count render time", +1)
         }
 
         console.log('hoidanIT check on Change img: ', file)
@@ -120,7 +114,6 @@ class UserRedux extends Component {
         this.setState({
             isOpen: true
         })
-        console.log("count render time", +1)
     }
 
     checkValidateInput = () => {
@@ -158,7 +151,6 @@ class UserRedux extends Component {
                 image: this.state.image,
                 token: this.props.userAccessToken
             })
-            console.log("count render time", +1)
         }
         if (action === CRUD_ACTIONS.EDIT) {
             // fire action edit
@@ -208,7 +200,6 @@ class UserRedux extends Component {
             previewImgURL: imageBase64,
             action: CRUD_ACTIONS.EDIT
         })
-        console.log("count render time", +1)
         // console.log('hoidanit check state', this.state)
     }
 
@@ -216,7 +207,6 @@ class UserRedux extends Component {
         // console.log('check array of gender: ', this.state.genderArr);
         // console.log('check language 2: ', LANGUAGES);
         console.log("check props ", this.props)
-        console.log("count render time", +1)
         let genderArrRender = this.state.genderArr;
         let roleArrRender = this.state.roleArr;
         let positionArrRender = this.state.positionArr;

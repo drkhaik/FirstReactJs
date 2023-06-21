@@ -276,7 +276,7 @@ class BookingModal extends Component {
                                 />
                             </div>
                             <div className="col-6 form-group">
-                                <label for="inputEmail" className="mb-1 mt-2">birthday (bắt buộc)</label>
+                                <label for="inputEmail" className="mb-1 mt-2"><FormattedMessage id="client.booking-modal.birthday" /></label>
                                 <DatePicker
                                     onChange={this.handleOnChangeDatePicker}
                                     className="form-control"

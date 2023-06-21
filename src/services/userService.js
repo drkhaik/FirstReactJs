@@ -12,9 +12,10 @@ const getAllUsers = (inputId) => {
 }
 
 const createNewUserService = (data) => {
-    console.log('check data from service', data);
-    console.log('check data from service', data.token);
-    return axios.post(`/api/createUser`, data, { headers: { 'Content-Type': 'application/json', "Authorization": `Bearer ${data.token}` } })
+    // console.log('check data from service', data);
+    // console.log('check data from service', data.token);
+    // return axios.post(`/api/createUser`, data, { headers: { 'Content-Type': 'application/json', "Authorization": `Bearer ${data.token}` } })
+    return axios.post(`/api/createUser`, data)
 
 }
 const editUserService = (data) => {
@@ -81,6 +82,10 @@ const getAllSpecialtyService = () => {
     return axios.get(`/api/get-all-specialty`);
 }
 
+const getAllSpecialtyNameService = () => {
+    return axios.get(`/api/get-all-specialty-name`);
+}
+
 const getDetailSpecialtyByIdService = (data) => {
     return axios.get(`/api/get-detail-specialty-by-id?id=${data.id}&location=${data.location}`);
 }
@@ -96,6 +101,10 @@ const createNewClinicService = (data) => {
 
 const getAllClinicService = () => {
     return axios.get(`/api/get-all-clinic`);
+}
+
+const getAllClinicNameService = () => {
+    return axios.get(`/api/get-all-clinic-name`);
 }
 
 const getDetailClinicByIdService = (data) => {
@@ -118,7 +127,18 @@ const saveCompletedStatusService = (data) => {
     return axios.put(`/api/save-completed-status`, data)
 }
 
-// export khac nodejs
+const createNewHandbookService = (data) => {
+    return axios.post(`/api/create-new-handbook`, data);
+}
+
+const getAllHandbookService = () => {
+    return axios.get(`/api/get-all-handbook`);
+}
+
+const getDetailHandbookByIdService = (data) => {
+    return axios.get(`/api/get-detail-handbook-by-id?id=${data.id}`);
+}
+
 export {
     handleLoginAPI,
     getAllUsers,
@@ -139,14 +159,21 @@ export {
     verifyAnAppointmentService,
     createNewSpecialtyService,
     getAllSpecialtyService,
+    getAllSpecialtyNameService,
     getDetailSpecialtyByIdService,
     deleteSpecialtyByIdService,
 
     createNewClinicService,
     getAllClinicService,
+    getAllClinicNameService,
     getDetailClinicByIdService,
     deleteClinicByIdService,
     getAddressClinicByDoctorIdService,
+
     getListPatientForDoctor,
     saveCompletedStatusService,
+
+    createNewHandbookService,
+    getAllHandbookService,
+    getDetailHandbookByIdService,
 }

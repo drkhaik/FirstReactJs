@@ -13,6 +13,7 @@ import './HomePage.scss';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { set } from 'lodash';
+import Banner from './Banner';
 
 class HomePage extends Component {
 
@@ -26,7 +27,7 @@ class HomePage extends Component {
         };
         let settingsHB = {
             dots: false,
-            infinite: true,
+            infinite: false,
             speed: 500,
             slidesToShow: 2,
             slidesToScroll: 1
@@ -34,7 +35,8 @@ class HomePage extends Component {
 
         return (
             <div>
-                <HomeHeader isShowBanner={true} />
+                <HomeHeader />
+                <Banner />
                 <Specialty settings={settings} />
                 <ProminentClinic settings={settings} />
                 <OutstandingDoctor settings={settings} />

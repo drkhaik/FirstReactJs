@@ -1,0 +1,72 @@
+@import "../../styles/variables";
+
+    .home-footer-wrapper {
+        background: #f5f5f5;
+        .home-footer-container{
+            // margin: 0 80px;
+            padding-top: 40px;
+            .row {
+                border-bottom: 1px solid #e0d8d8;
+                margin: 0 auto;
+                .brand-section {
+                    font-weight: lighter;
+                    padding: 0;
+                    .brand-logo{
+                        height: 60px;
+                        display: flex;
+                        align-items: center;
+                        .logo {
+                            height: 100%;
+                            // width: 100%;
+                            cursor: pointer;
+                            transform: scale(0.7, 0.7);
+                            margin-left: -40px;
+                        }
+                    }
+                    span {
+                        margin-right: 5px;
+                    }
+                }
+        
+                .menu-section {
+                    list-style: none;
+                    margin: 0px 0px 10px 0;
+                    overflow-x: hidden;
+        
+                    li{
+                        padding: 5px 0;
+                        color: #46c3d1;
+                    }
+                }
+        
+                .address-contact-section {
+                    padding: 0;
+                    span {
+                        font-weight: bold;
+                    }
+                    p {
+                        font-weight: lighter;
+                    }
+                }
+            }
+            .download-note {
+                margin-top: 10px;
+                margin-bottom: 20px;
+                font-size: 15px;
+                span {
+                    color: #46c3d1;
+                }
+            }
+        }
+    
+        .home-footer-copyright {
+            text-align: center;
+            padding-top: 10px;
+            background: #64b9e5;
+            color: #fff;
+            padding: 10px;
+            a {
+                text-decoration: none;
+            }
+        }
+    }

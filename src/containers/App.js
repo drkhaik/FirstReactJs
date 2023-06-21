@@ -19,6 +19,7 @@ import DetailDoctor from './Client/Doctor/DetailDoctor';
 import VerifyEmail from './Client/VerifyEmail';
 import DetailSpecialty from './Client/Specialty/DetailSpecialty';
 import DetailClinic from './Client/Clinic/DetailClinic';
+import DetailHandbook from './Client/Handbook/DetailHandbook';
 import LoadingOverLay from 'react-loading-overlay';
 
 class App extends Component {
@@ -65,6 +66,7 @@ class App extends Component {
                                         <Route path={path.DETAIL_DOCTOR} component={DetailDoctor} />
                                         <Route path={path.DETAIL_SPECIALTY} component={DetailSpecialty} />
                                         <Route path={path.DETAIL_CLINIC} component={DetailClinic} />
+                                        <Route path={path.DETAIL_HANDBOOK} component={DetailHandbook} />
                                         <Route path={path.VERIFY_EMAIL_BOOKING} component={VerifyEmail} />
                                     </Switch>
                                 </CustomScrollbars>

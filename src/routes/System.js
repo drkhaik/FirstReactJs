@@ -7,6 +7,7 @@ import ManageDoctor from '../containers/System/Admin/ManageDoctor';
 import Header from '../containers/Header/Header';
 import ManageSpecialty from '../containers/System/Specialty/ManageSpecialty';
 import ManageClinic from '../containers/System/Clinic/ManageClinic';
+import ManageHandbook from '../containers/System/Handbook/ManageHandbook';
 import RoleRoute from './MiddlewareRoute';
 import { USER_ROLE } from '../utils';
 // import { userRoleIsAdmin } from '../hoc/authentication';
@@ -28,6 +29,7 @@ class System extends Component {
                             <RoleRoute path="/system/manage-doctor" allowedRoles={[USER_ROLE.ADMIN]} component={ManageDoctor} />
                             <RoleRoute path="/system/manage-specialty" allowedRoles={[USER_ROLE.ADMIN]} component={ManageSpecialty} />
                             <RoleRoute path="/system/manage-clinic" allowedRoles={[USER_ROLE.ADMIN]} component={ManageClinic} />
+                            <RoleRoute path="/system/manage-handbook" allowedRoles={[USER_ROLE.ADMIN]} component={ManageHandbook} />
                             <RoleRoute component={() => { return (<Redirect to={systemMenuPath} />) }} />
                         </Switch>
                     </div>

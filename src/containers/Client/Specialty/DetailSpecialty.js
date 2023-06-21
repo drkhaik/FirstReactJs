@@ -4,6 +4,7 @@ import { LANGUAGES } from '../../../utils';
 import { FormattedMessage } from 'react-intl';
 import './DetailSpecialty.scss';
 import HomeHeader from '../../HomePage/HomeHeader';
+import HomeFooter from '../../HomePage/HomeFooter';
 import DoctorSchedule from '../Doctor/DoctorSchedule';
 import DoctorExtraInfo from '../Doctor/DoctorExtraInfo';
 import ProfileDoctor from '../Doctor/ProfileDoctor';
@@ -174,7 +175,7 @@ class DetailSpecialty extends Component {
                             </div>
                         </div>
                     </div>
-
+                    <HomeFooter />
                 </div>
             </>
         );

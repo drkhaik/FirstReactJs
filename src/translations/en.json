@@ -76,6 +76,7 @@
             "email": "Email (*)",
             "phone-number": "Phone number (*)",
             "address": "Address",
+            "birthday": "Day of Birth(*)",
             "gender": "Gender",
             "reason": "Reasons (*)",
             "btn-confirm": "Confirm",
@@ -93,6 +94,11 @@
             "note-content-2": "Support online appointment booking before going to the hospital (free booking)",
             "note-content-3": "Reduces waiting time for examination procedures and prioritizes patients for examination",
             "note-content-4": "After scheduling an appointment, patients will receive detailed guidance"
+        },
+        "detail-handbook": {
+            "prod-of": "Product of:",
+            "author": "Author:",
+            "note": "BookingCare Minus is a leading comprehensive healthcare platform in Vietnam that connects users with over 200 reputable hospitals and clinics, more than 1,500 competent doctors, and thousands of high-quality medical services and products."
         }
     },
     "admin": {
@@ -139,6 +145,13 @@
             "upload-image": "Upload",
             "desc-clinic": "Description of Clinic/ Hospital",
             "strength-equipment-clinic": "Strengths - Equipments"
+        },
+        "manage-handbook": {
+            "manage-handbook": "Manage Handbook",
+            "name-handbook": "Title",
+            "description": "Short introduce",
+            "upload-image": "Upload",
+            "content-handbook": "Content"
         }
     }
 }

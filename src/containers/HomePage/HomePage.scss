@@ -1,206 +1,900 @@
-// ======== REACT Slick ============
-
-.slick-prev,
-.slick-next {
-    width: 48px !important;
-    height: 44px !important;
-    background: #fff !important;
-    border: 2px solid #d7d7d7 !important;
-
-    &:hover {
-        background: #ececec !important;
-    }
-}
-
-.slick-prev {
-    left: -10px !important;
-    z-index: 1000 !important;
-
-}
-
-.slick-next {
-    right: -10px !important;
-}
-
-.slick-prev:before,
-.slick-next:before {
-    font-family: FontAwesome !important;
-    color: red !important;
-}
-
-.slick-disabled {
-    display: none !important;
-}
-
+@import "../../styles/variables";
 
 // ========== ADDITIONAL Section =============
 
-.main-section {
-
-    &.section-specialty,
-    &.section-outstanding-doctor {
-        background: #f5f5f5;
-        height: 400px;
-
-    }
-
-    &.section-about {
-        border-top: 1px solid #ccc3c3;
-        border-bottom: 1px solid #ccc3c3;
-        height: 500px;
-        padding: 0 100px;
-
-        .section-about-header {
-            padding: 20px 10px;
-
-            .title-section {
-                font-size: 22px;
-                font-weight: 600;
-            }
-        }
-
-        .section-about-content {
-            display: flex;
-            gap: 15px;
-            width: 100%;
-
-            .content-left {
-                width: 60%;
-            }
-
-            .content-right {
-                width: 40%;
-
-                p {
-                    padding: 15px;
-                    text-align: justify;
-                    font-style: italic;
-                    font-size: 17px;
-                }
-            }
+@include MediaQuery($desktop-lg){
+    // ======== REACT Slick ============
+    .slick-prev,
+    .slick-next {
+        width: 48px !important;
+        height: 44px !important;
+        background: #fff !important;
+        border: 2px solid #d7d7d7 !important;
+    
+        &:hover {
+            background: #ececec !important;
         }
     }
-
-    &.section-handbook .section-container {
-        margin: 0 80px;
+    
+    .slick-prev {
+        left: -10px !important;
+        z-index: 1000 !important;
+    
+    }
+    
+    .slick-next {
+        right: -10px !important;
+    }
+    
+    .slick-prev:before,
+    .slick-next:before {
+        font-family: FontAwesome !important;
+        color: red !important;
+    }
+    
+    .slick-disabled {
+        display: none !important;
     }
 
 
-    .section-body {
-
-        .section-customize {
-            &.circle-customize {
-                width: 273px !important;
-                height: 245px;
-                background-color: #fff;
-                padding: 10px 5px;
-                cursor: pointer;
-                box-shadow: 4px 4px 4px #20212447;
-                border-radius: 10px;
-
-                .outer-img {
-                    width: 120px;
-                    height: 120px;
-                    margin: 0 auto;
+    // ==== MAIN SECTION ====
+    .main-section {
+        &.section-specialty,
+        &.section-outstanding-doctor {
+            background: #f5f5f5;
+            height: 400px;
+            border-bottom: 3px solid #efeef5;
+        }
+    
+        &.section-about {
+            height: 550px;
+            padding: 0 50px;
+            background-color: #f5f5f5;
+            border-bottom: 3px solid #efeef5;
+    
+            .section-header {
+                padding: 20px 10px;
+    
+                .title-section {
+                    font-size: 22px;
+                    font-weight: 600;
                 }
-                .text {
-                    h3 {
-                        font-size: 14px;
-                        .outstanding-doctor-name{
-                            font-weight: 600;
-                            color: #333;
-                        }
+            }
+    
+            .section-content {
+                display: flex;
+                gap: 15px;
+                width: 100%;
+    
+                .content-left {
+                    width: 60%;
+                    iFrame {
+                        height: 400px;
+                    }
+                }
+                .content-right {
+                    width: 40%;
+                    p {
+                        padding: 15px;
+                        text-align: justify;
+                        font-style: italic;
+                        font-size: 17px;
                     }
                 }
             }
-
-            &.handbook-customize {
-                display: flex !important;
-                color: #333;
-                text-decoration: none;
-
-                .outer-img {
-                    width: 50%;
-                }
-
-                .handbook-title {
-                    width: 45%;
-                    // color: #333;
-                    font-weight: bold;
-                    font-size: 16px;
-                    margin-bottom: 15px;
-                    padding-left: 5px;
-                }
-
-                &:hover {
-                    color: #49bce2;
-                    cursor: pointer;
-                }
-            }
-            &.specialty-child{
-                cursor: pointer;
-                &:hover{
-                    color: #45c3d2;
-                }
-                .specialty-name {
-                    padding: 10px 0;
-                }
-            }
-            &.clinic-child {
-                cursor: pointer;
-                &:hover{
-                    color: #45c3d2;
-                }
-                .specialty-name {
-                    padding: 10px 0;
-                }
-            }
-            .img {
-                width: 278px;
-                height: 150px;
-                background-position: center center;
+        }
+        &.section-download {
+            height: 380px;
+            padding: 40px 15px;
+            border-bottom: 3px solid #efeef5;
+            .section-container {
+                background: url('../../assets/bookingcare-app-2020.png');
                 background-repeat: no-repeat;
-                background-size: cover;
-
-                &.section-specialty {
-                    // background-image: url('../../assets/health-facility/083122lo-go-viet-duc.jpeg');
-                    object-fit: contain !important;
-                    background-size: contain;
-                    height: 175px;   
-                    // border: 1px solid #edeeed;        
+                background-size: 200px auto;
+                background-position-x: 300px;
+                padding-left: 520px;
+                padding-top: 40px;
+                padding-bottom: 40px;
+                height: 300px;
+    
+                h2 {
+                    font-weight: bold;
+                    margin: 0;
+                    padding: 0;
+                    margin-bottom: 14px;
                 }
-
-                &.section-prominent-clinic {
-                    // background-image: url('../../assets/health-facility/083122lo-go-viet-duc.jpeg');
-                    width: 100%;
-                    width: 265px !important;
-                    object-fit: contain !important;
-                    padding: 10px;
-                    height: 150px;   
-                    border: 1px solid #edeeed;
+                ul {
+                    list-style: none;
+                    padding-left: 0;
+                    li{
+                        margin-bottom: 5px;
+                        font-size: 15px;
+                        span {
+                            margin-right: 10px;
+                            i{
+                                color: #44c3d0;
+                                font-size: 17px;
+                            }
+                        }
+                    }
                 }
-
-                &.section-outstanding-doctor {
-                    // background-image: url('../../assets/outstanding-doctor/doctor.png');
-                    width: auto;
-                    height: 100%;
-                    border-radius: 50%;
-                }
-
-                &.section-handbook {
-                    background-image: url('../../assets/handbook/175856-phuong-phap-nang-co-mat.png');
+                .app-link{
+                    margin-top: 15px;
+                    .app-img {
+                        height: 40px;
+                        margin-right: 10px;
+                    }
                 }
             }
-
-            .text {
-                margin-top: 15px;
-
-                h3 {
-                    font-size: 13px;
+        }
+        &.section-clinic {
+            border-bottom: 3px solid #efeef5;
+        }
+    
+        &.section-handbook{
+            // margin: 0 80px; 
+            border-bottom: 3px solid #efeef5;
+        }
+    
+    
+        .section-body {
+    
+            .section-customize {
+                &.circle-customize {
+                    width: 273px !important;
+                    height: 245px;
+                    background-color: #fff;
+                    padding: 10px 5px;
+                    cursor: pointer;
+                    box-shadow: 4px 4px 4px #20212447;
+                    border-radius: 10px;
+    
+                    .outer-img {
+                        width: 120px;
+                        height: 120px;
+                        margin: 0 auto;
+                    }
+                    .text {
+                        h3 {
+                            font-size: 14px;
+                            .outstanding-doctor-name{
+                                font-weight: 600;
+                                color: #333;
+                            }
+                        }
+                    }
                 }
+    
+                &.handbook-customize {
+                    display: flex !important;
+                    color: #333;
+                    text-decoration: none;
+    
+                    .outer-img {
+                        width: 50%;
+                        margin-right: 10px;
+                        .section-handbook {
+                            width: 278px;
+                            height: 150px;
+                            border: 1px solid #f5e9e9;
+                            border-radius: 10px;
+                        }
+                    }
+    
+                    .handbook-title {
+                        width: 45%;
+                        // color: #333;
+                        font-weight: bold;
+                        font-size: 16px;
+                        margin-bottom: 15px;
+                        padding-left: 5px;
+                    }
+    
+                    &:hover {
+                        color: #49bce2;
+                        cursor: pointer;
+                    }
+                }
+                &.specialty-child{
+                    cursor: pointer;
+                    &:hover{
+                        color: #45c3d2;
+                    }
+                    .specialty-name {
+                        padding: 10px 0;
+                    }
+                }
+                &.clinic-child {
+                    cursor: pointer;
+                    &:hover{
+                        color: #45c3d2;
+                    }
+                    .specialty-name {
+                        padding: 10px 0;
+                    }
+                }
+               
+                .img {
+                    width: 278px;
+                    height: 150px;
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+    
+                    &.section-specialty {
+                        // background-image: url('../../assets/health-facility/083122lo-go-viet-duc.jpeg');
+                        object-fit: contain !important;
+                        background-size: contain;
+                        height: 175px;   
+                        // border: 1px solid #edeeed;        
+                    }
+    
+                    &.section-prominent-clinic {
+                        // background-image: url('../../assets/health-facility/083122lo-go-viet-duc.jpeg');
+                        object-fit: contain !important;
+                        padding: 10px;
+                        height: 150px;   
+                        border: 1px solid #edeeed;
+                    }
+    
+                    &.section-outstanding-doctor {
+                        // background-image: url('../../assets/outstanding-doctor/doctor.png');
+                        width: auto;
+                        height: 100%;
+                        border-radius: 50%;
+                    }
+    
+                   
+                }
+    
+                .text {
+                    margin-top: 15px;
+    
+                    h3 {
+                        font-size: 13px;
+                    }
+    
+                    h4 {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
 
-                h4 {
+    .main-section {
+        height: 330px;
+    
+        .section-container {
+    
+            margin: 0 90px; // responsive
+            display: flex;
+            flex-direction: column;
+    
+            .section-header {
+    
+                height: 60px;
+                margin-bottom: 30px;
+                padding-top: 30px;
+    
+                .title-section {
+                    font-size: 22px;
+                    font-weight: 600;
+                }
+    
+                .btn-section {
+                    float: right;
+                    padding: 10px 15px;
+                    border: none;
+                    outline: none;
+                    display: block;
+                    background: #ececec;
+                    color: #595555;
+                    cursor: pointer;
+                    text-transform: uppercase;
                     font-size: 12px;
+    
+                    &:hover {
+                        color: #fff;
+                        background: #f7d800;
+                    }
+                }
+            }
+    
+    
+    
+        }
+    
+    }
+    
+}
+
+@include MediaQuery($desktop){
+    .slick-slide{
+        &.slick-active {
+            width: unset !important;
+        }
+    }
+    .slick-list {
+        // height: 230px;
+        overflow: hidden;
+        .slick-track{
+            width: max-content !important;
+        } 
+    }
+
+    .main-section {
+        &.section-specialty, &.section-clinic, &.section-outstanding-doctor, &.section-handbook {
+            height: 350px;
+            .section-container {
+                margin: 0 70px;
+                .section-header {
+                    height: 50px;
+                    margin-bottom: 30px;
+                    padding-top: 25px;
+                    .title-section {
+                        font-size: 24px;
+                    }
+                    .btn-section {
+                        padding: 10px;
+                    }
+                }
+            }
+        }
+        &.section-about{
+            padding: 0 70px;
+            height: 550px;
+            .section-container {
+                margin: 0 10px;
+                .section-header {
+                    height: 70px;
+                    padding: 30px 0;
+                    margin-bottom: 10px;
+                    .title-section {
+                        font-size: 26px;
+                    }
+                    .btn-section {
+                        padding: 0;
+                    }
+                }
+            }
+            .section-content {
+                // flex-wrap: wrap;
+                .content-left {
+                    width: 60%;
+                    iFrame {
+                        height: 400px;
+                    }
+                }
+                .content-right {
+                    // display: none;
+                    width: 40%;
+                    font-size: 14px;
+                }
+            }
+        }
+        &.section-download {
+            height: 390px;
+            .section-container {
+                margin: 0 30px;
+                height: 290px;
+                // background-image: none;
+                background-position-x: 280px;
+                padding-left: 500px;
+                h2 {
+                    font-size: 20px;
+                }
+            }
+        }
+        .section-body {
+            .section-customize {
+                .img {
+                    &.section-specialty {
+                        height: 185px;
+                        width: auto;
+                    }
+                    &.section-prominent-clinic {
+                        // width: 170px !important;
+                        height: 140px;
+                        width: 270px !important;
+                    }
+                }
+                &.specialty-child{ 
+                    width: 300px !important;
+                }
+                &.clinic-child {
+                    width: 290px !important;
+                    .specialty-name {
+                        padding: 10px;
+                        font-size: 14px;
+                    }
+                }
+                &.circle-customize {
+                    width: 260px !important;
+                    height: 250px;
+                    margin-right: 27px;
+                    .outer-img {
+                        width: 110px;
+                        height: 110px;
+                    }
+                    .text {
+                        h3 {
+                            font-size: 14px;
+                            .outstanding-doctor-name{
+                                font-weight: 600;
+                                color: #333;
+                            }
+                        }
+                    }
+                }
+                &.handbook-customize {
+                    display: flex !important;
+                    width: 540px !important;
+                    // display: inline-block !important;
+                    .outer-img {
+                        width: 100%;
+                        // width: 278px;
+                        .section-handbook {
+                            width: 290px;
+                            height: 150px;
+                        }
+                    }
+                    .handbook-title {
+                        width: 100%;
+                        font-size: 14px;
+                        padding-left: 5px;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include MediaQuery($lg){
+    .slick-slide{
+        &.slick-active {
+            width: unset !important;
+        }
+    }
+    .slick-list {
+        // height: 170px;
+        overflow: unset;
+        .slick-track{
+            width: max-content !important;
+        } 
+    }
+    .slick-prev,
+    .slick-next {
+        width: 30px !important;
+        height: 30px !important;
+    }
+
+    .main-section {
+        &.section-specialty, &.section-clinic, &.section-outstanding-doctor,  &.section-handbook{
+            height: 350px;
+            .section-container {
+                margin: 0 60px;
+                .section-header {
+                    height: 50px;
+                    margin-bottom: 30px;
+                    padding-top: 20px;
+                    .title-section {
+                        font-size: 24px;
+                    }
+                    .btn-section {
+                        padding: 10px;
+                    }
+                }
+            }
+        }
+        &.section-about{
+            padding: 0 40px;
+            height: 600px;
+            .section-container {
+                margin: 0 10px;
+                .section-header {
+                    height: 70px;
+                    padding: 30px 0;
+                    margin-bottom: 10px;
+                    .title-section {
+                        font-size: 20px;
+                    }
+                    .btn-section {
+                        padding: 0;
+                    }
+                }
+            }
+            .section-content {
+                flex-wrap: wrap;
+                .content-left {
+                    width: 100%;
+                    iFrame {
+                        height: 400px;
+                    }
+                }
+                .content-right {
+                    // display: none;
+                    width: 100%;
+                    font-size: 14px;
+                }
+            }
+        }
+        &.section-download {
+            height: 390px;
+            .section-container {
+                margin: 0 30px;
+                height: 290px;
+                // background-image: none;
+                background-position-x: 280px;
+                padding-left: 500px;
+                h2 {
+                    font-size: 20px;
+                }
+            }
+        }
+
+        .section-body {
+            .section-customize {
+                .img {
+                    &.section-specialty {
+                        height: 140px;
+                        width: auto;
+                    }
+                    &.section-prominent-clinic {
+                        // width: 170px !important;
+                        height: 140px;
+                        width: 220px !important;
+                    }
+                }
+                &.specialty-child{ 
+                    width: 240px !important;
+                }
+                &.clinic-child {
+                    width: 240px !important;
+                    .specialty-name {
+                        padding: 10px;
+                        font-size: 14px;
+                    }
+                }
+                &.circle-customize {
+                    width: 210px !important;
+                    height: 230px;
+                    margin-right: 17px;
+                    .outer-img {
+                        width: 110px;
+                        height: 110px;
+                    }
+                    .text {
+                        h3 {
+                            font-size: 14px;
+                            .outstanding-doctor-name{
+                                font-weight: 600;
+                                color: #333;
+                            }
+                        }
+                    }
+                }
+                &.handbook-customize {
+                    display: flex !important;
+                    width: 450px !important;
+                    // display: inline-block !important;
+                    .outer-img {
+                        width: 100%;
+                        // width: 278px;
+                        .section-handbook {
+                            width: 280px;
+                            height: 150px;
+                        }
+                    }
+                    .handbook-title {
+                        width: 100%;
+                        font-size: 14px;
+                        padding-left: 5px;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include MediaQuery($md){
+    .slick-slide{
+        &.slick-active {
+            width: unset !important;
+        }
+    }
+    .slick-list {
+        // height: 140px;
+        .slick-track{
+            width: max-content !important;
+        }
+        overflow: unset !important;
+    }
+    .slick-prev,
+    .slick-next {
+        width: 30px !important;
+        height: 30px !important;
+    }
+
+    .main-section {
+        &.section-specialty, &.section-clinic, &.section-outstanding-doctor,  &.section-handbook {
+            height: 280px;
+            .section-container {
+                margin: 0 40px;
+                .section-header {
+                    height: 50px;
+                    margin-bottom: 35px;
+                    padding-top: 30px;
+                    .title-section {
+                        font-size: 24px;
+                    }
+                    .btn-section {
+                        padding: 10px;
+                    }
+                }
+            }
+        }
+        &.section-outstanding-doctor {
+            height: 320px;
+        }
+        &.section-clinic {
+            height: 330px;
+        }
+        &.section-handbook {
+            height: 330px;
+        }
+        &.section-about{
+            padding: 0 40px;
+            height: 600px;
+            .section-container {
+                margin: 0 10px;
+                .section-header {
+                    height: 70px;
+                    padding: 30px 0;
+                    margin-bottom: 10px;
+                    .title-section {
+                        font-size: 20px;
+                    }
+                    .btn-section {
+                        padding: 0;
+                    }
+                }
+            }
+            .section-content {
+                flex-wrap: wrap;
+                .content-left {
+                    width: 100%;
+                    iFrame {
+                        height: 400px;
+                    }
+                }
+                .content-right {
+                    // display: none;
+                    width: 100%;
+                    font-size: 14px;
+                }
+            }
+        }
+        &.section-download {
+            height: 330px;
+            .section-container {
+                // margin: 0 30px;
+                // background-image: none;
+                background-position-x: 400px;
+                padding-left: 0px;
+                h2 {
+                    font-size: 20px;
+                }
+            }
+        }
+        .section-body {
+            .section-customize {
+                .img {
+                    &.section-specialty {
+                        height: 110px;
+                        width: auto;
+                    }
+                    &.section-prominent-clinic {
+                        // width: 170px !important;
+                        height: 110px;
+                        width: 180px !important;
+                    }
+                }
+                &.specialty-child{ 
+                    width: 180px !important;
+                }
+                &.clinic-child {
+                    width: 190px !important;
+                    .specialty-name {
+                        padding: 10px;
+                        font-size: 13px;
+                    }
+                }
+                &.circle-customize {
+                    width: 180px !important;
+                    height: 210px;
+                    margin-right: 15px;
+                    .outer-img {
+                        width: 80px;
+                        height: 80px;
+                    }
+                    .text {
+                        h3 {
+                            font-size: 14px;
+                            .outstanding-doctor-name{
+                                font-weight: 600;
+                                color: #333;
+                            }
+                        }
+                    }
+                }
+                &.handbook-customize {
+                    // display: flex !important;
+                    width: 390px !important;
+                    display: inline-block !important;
+                    .outer-img {
+                        width: 100%;
+                        // width: 278px;
+                        .section-handbook {
+                            width: 360px;
+                            height: 160px;
+                        }
+                    }
+                    .handbook-title {
+                        width: 100%;
+                        font-size: 14px;
+                        padding-left: 5px;
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include MediaQuery($sm){
+    .slick-slide{
+        &.slick-active {
+            width: unset !important;
+        }
+    }
+    .slick-slide{
+        width: 40px !important;
+    }
+    .slick-list {
+        height: 130px;
+        .slick-track{
+            width: max-content !important;
+        } 
+    }
+    .slick-prev,
+    .slick-next {
+        width: 30px !important;
+        height: 30px !important;
+    }
+
+    .main-section {
+        &.section-specialty, &.section-clinic , &.section-outstanding-doctor,  &.section-handbook{
+            height: 280px;
+            .section-container {
+                margin: 0 10px;
+                .section-header {
+                    height: 50px;
+                    margin-bottom: 10px;
+                    padding-top: 10px;
+                    .title-section {
+                        font-size: 16px;
+                    }
+                    .btn-section {
+                        padding: 0;
+                    }
+                }
+            }
+        }
+        &.section-outstanding-doctor {
+            height: 300px;
+        }
+        &.section-about{
+            padding: 0 10px;
+            height: 280px;
+            .section-container {
+                margin: 0 10px;
+                .section-header {
+                    height: 70px;
+                    padding: 30px 0;
+                    margin-bottom: 10px;
+                    .title-section {
+                        font-size: 20px;
+                    }
+                    .btn-section {
+                        padding: 0;
+                    }
+                }
+            }
+            .section-content {
+                .content-left {
+                    width: 100%;
+                    iFrame {
+                        height: 200px;
+                        
+                    }
+                }
+                .content-right {
+                    display: none;
+                }
+            }
+        }
+        &.section-download {
+            height: 330px;
+            .section-container {
+                background-image: none;
+                padding-left: 0px;
+                h2 {
+                    font-size: 18px;
+                }
+            }
+        }
+        .section-body {
+            .section-customize {
+                .img {
+                    &.section-specialty {
+                        height: 90px;
+                        width: auto;
+                    }
+                    &.section-prominent-clinic {
+                        // width: 170px !important;
+                        height: 80px;
+                        width: 145px !important;
+                    }
+                }
+                &.specialty-child{ 
+                    width: 140px !important;
+                }
+                &.clinic-child {
+                    width: 150px !important;
+                    .specialty-name {
+                        padding: 10px;
+                    }
+                }
+                &.circle-customize {
+                    width: 150px !important;
+                    height: 210px;
+                    margin-right: 5px;
+                    .outer-img {
+                        width: 80px;
+                        height: 80px;
+                    }
+                    .text {
+                        h3 {
+                            font-size: 13px;
+                            .outstanding-doctor-name{
+                                font-weight: 600;
+                                color: #333;
+                            }
+                        }
+                    }
+                }
+                &.handbook-customize {
+                    // display: flex !important;
+                    width: 260px !important;
+                    display: inline-block !important;
+                    .outer-img {
+                        width: 100%;
+                        // width: 278px;
+                        .section-handbook {
+                            width: 250px;
+                            height: 140px;
+                        }
+                    }
+                    .handbook-title {
+                        width: 100%;
+                        font-size: 13px;
+                        padding-left: 20px;
+                        margin-top: 5px;
+                        font-weight: 500;
+                    }
                 }
             }
         }
@@ -208,59 +902,4 @@
 }
 
 
-// ========== MAIN Section  =============
 
-
-.main-section {
-    height: 330px;
-
-    .section-container {
-
-        margin: 0 90px; // responsive
-        display: flex;
-        flex-direction: column;
-
-        .section-header {
-
-            height: 60px;
-            margin-bottom: 30px;
-            padding-top: 30px;
-
-            .title-section {
-                font-size: 22px;
-                font-weight: 600;
-            }
-
-            .btn-section {
-                float: right;
-                padding: 10px 15px;
-                border: none;
-                outline: none;
-                display: block;
-                background: #ececec;
-                color: #595555;
-                cursor: pointer;
-                text-transform: uppercase;
-                font-size: 12px;
-
-                &:hover {
-                    color: #fff;
-                    background: #f7d800;
-                }
-            }
-        }
-
-
-
-    }
-
-}
-
-.home-footer {
-    text-align: center;
-    padding-top: 10px;
-
-    a {
-        text-decoration: none;
-    }
-}

@@ -20,11 +20,11 @@ export const userIsNotAuthenticated = connectedRouterRedirect({
 
 
 // export const userRoleIsAdmin = (Component) => {
-//     const allowedRoles = ['R1', 'R2', 'R3'];
+//     const allowedRoles = ['R1'];
 //     return connectedRouterRedirect({
 //         authenticatedSelector: (state) => state.user.userAccessToken,
 //         wrapperDisplayName: 'userRoleIsAdmin',
-//         redirectPath: '/doctor/manage-schedule',
+//         redirectPath: '/system/admin-page',
 //         redirectAction: () => (dispatch, state) => {
 //             const { user } = state();
 //             if (!user.userAccessToken) {

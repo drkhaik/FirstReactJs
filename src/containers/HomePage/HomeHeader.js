@@ -6,10 +6,11 @@ import logo from '../../assets/logo.svg';
 import { FormattedMessage } from 'react-intl';
 import { LANGUAGES } from '../../utils'
 import { changeLanguageApp } from '../../store/actions';
-import { withRouter } from 'react-router'
-
+import { withRouter } from 'react-router';
 
 class HomeHeader extends Component {
+
+
 
     changeLanguage = (language) => {
         // su dung ham` tu mapDispatch
@@ -21,6 +22,17 @@ class HomeHeader extends Component {
             this.props.history.push(`/home`);
         }
     }
+
+    // (function (params) {
+    //     var words = ["UI/UX designer", "ABC", "DEF"],
+    //     i =0 ;
+    //     setInterval(function(){
+    //         $('#words').fadeOut(function(){
+    //             $(this).html(words[(i = (i + 1) % words.length)]).fadeIn();
+    //         });
+
+    //     }, 3000)
+    // })();
 
     render() {
         let language = this.props.lang;
@@ -52,98 +64,21 @@ class HomeHeader extends Component {
                             </div>
                         </div>
                         <div className='right-content'>
-                            <div className='support'><i className="fas fa-question-circle"></i><FormattedMessage id="home-header.support" /></div>
-                            <div className={language === LANGUAGES.VI ? 'language-vi active' : 'language-vi'}>
-                                <span onClick={() => this.changeLanguage(LANGUAGES.VI)}>VI</span>
+                            <div className='support'><i className="fas fa-question-circle"></i>
+                                <p> <FormattedMessage id="home-header.support" /></p>
                             </div>
-                            <div className={language === LANGUAGES.EN ? 'language-en active' : 'language-en'}>
-                                <span onClick={() => this.changeLanguage(LANGUAGES.EN)}>EN</span>
+                            <div className='change-language'>
+                                <div className={language === LANGUAGES.VI ? 'language-vi active' : 'language-vi'}>
+                                    <span onClick={() => this.changeLanguage(LANGUAGES.VI)}>VI</span>
+                                </div>
+                                <div className={language === LANGUAGES.EN ? 'language-en active' : 'language-en'}>
+                                    <span onClick={() => this.changeLanguage(LANGUAGES.EN)}>EN</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                {/* prop du lieu isShowBanner tu thang cha */}
-                {this.props.isShowBanner === true &&
-                    <div className='home-header-banner'>
-                        <div className='content-up'>
-                            <div className='title1'><FormattedMessage id="banner.title1" />
-                            </div>
-                            <div className='title2'> <b><FormattedMessage id="banner.title2" /> </b></div>
-                            <div className='search'>
-                                <i className="fas fa-search"></i>
-                                <input type='text' placeholder='Tìm chuyên khoa khám bệnh' />
-                            </div>
-                        </div>
-                        <div className='content-down'>
-                            <div className='options'>
-                                <ul>
-                                    <li>
-                                        <a>
-                                            <div className='icon-child'><i className="fas fa-hospital"></i></div>
-                                            <p><FormattedMessage id="banner.specialty" /></p>
 
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a>
-                                            <div className='icon-child'><i className="fas fa-mobile-alt"></i></div>
-                                            <p><FormattedMessage id="banner.remote" /></p>
-
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a>
-                                            <div className='icon-child'><i className="fas fa-stethoscope"></i></div>
-                                            <p><FormattedMessage id="banner.general" /></p>
-
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a>
-                                            <div className='icon-child'><i className="fas fa-flask"></i></div>
-                                            <p><FormattedMessage id="banner.medical-test" /></p>
-
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a>
-                                            <div className='icon-child'><i className="fas fa-user-md"></i></div>
-                                            <p><FormattedMessage id="banner.mental" /></p>
-
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a>
-                                            <div className='icon-child'><i className="fas fa-notes-medical"></i></div>
-                                            <p><FormattedMessage id="banner.dental" /></p>
-
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a>
-                                            <div className='icon-child'><i className="fas fa-syringe"></i></div>
-                                            <p><FormattedMessage id="banner.surgery" /></p>
-
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a>
-                                            <div className='icon-child'><i className="fas fa-briefcase-medical"></i></div>
-                                            <p><FormattedMessage id="banner.medical-product" /></p>
-
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a>
-                                            <div className='icon-child'><i className="fas fa-stopwatch"></i></div>
-                                            <p><FormattedMessage id="banner.heath-test" /></p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                }
             </React.Fragment >
         );
     }
